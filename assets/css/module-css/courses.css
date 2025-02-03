@@ -1453,8 +1453,34 @@
 
 .course-details__ratting>li:nth-child(4) span,
 .course-details__ratting>li:nth-child(5) span {
-    color: #6B778B;
+    color:#fff;
 }
+/*--------------------------------------------------------------
+# Courses Detail
+--------------------------------------------------------------*/
+.page-header__inner h2{
+    font-size: 3rem;
+}
+.course-details__img{
+width: 100%;
+}
+.course-details__img img{
+width: 100%;
+
+}
+.course-details__title{
+color: var(--fistudy-white);
+}
+
+.course-details__main-tab-box p{
+color: var(--fistudy-white);
+}
+.course-details__overview p,
+.course-details__overview h3,
+.course-details__overview h5{
+color: var(--fistudy-white)!important;
+}
+  
 
 .course-details__main-tab-box {
     position: relative;
@@ -1467,7 +1493,7 @@
     align-items: center;
     border-radius: 30px;
     height: 60px;
-    width: 658px;
+    width: 420px;
     border: 1px solid var(--fistudy-bdr-color);
     padding: 3px 3px 3px;
     padding-right: 0;
@@ -1492,7 +1518,7 @@
     text-align: center;
     font-size: 20px;
     line-height: 20px;
-    color: var(--fistudy-black);
+    color: var(--fistudy-white);
     background-color: transparent;
     padding: 16px 24px 16px;
     font-weight: 400;

@@ -1057,6 +1057,7 @@ ul {
 
 
 
+
 @media (min-width: 1200px) {
 
   .main-menu .main-menu__list,
@@ -1393,7 +1394,7 @@ ul {
   display: flex;
   align-items: center;
   font-size: 20px;
-  color: var(--fistudy-white);
+  color: var(--fistudy-black);
   cursor: pointer;
   -webkit-transition: 500ms;
   transition: 500ms;

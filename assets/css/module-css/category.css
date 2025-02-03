@@ -4,7 +4,7 @@
 .category-one {
     position: relative;
     display: block;
-    background: linear-gradient(180deg, #3C59FC 0%, #687EFF 100%);
+    background: linear-gradient(180deg, #0000ff 0%, #828bd1 100%);
     counter-reset: count;
     padding: 84px 0 68px;
     z-index: 1;
