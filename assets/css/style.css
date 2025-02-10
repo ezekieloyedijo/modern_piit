@@ -2249,7 +2249,7 @@ ul {
   left: -4px;
   width: 20px;
   height: 20px;
-  background-color: var(--fistudy-base);
+  background-color: var(--fistudy-);
   border-radius: 50%;
 }
 
@@ -2307,8 +2307,9 @@ ul {
 
 .owl-theme .owl-dots .owl-dot.active span,
 .owl-theme .owl-dots .owl-dot:hover span {
-  border: 1px solid var(--fistudy-primary);
-  background-color: var(--fistudy-primary);
+  border: 1px solid var(--fistudy-black);
+  background-color: var(--fistudy-black);
+  color: rgba(var(--fistudy-white-rgb), .10);
 }
 
 .owl-theme .owl-dots .owl-dot span:before {

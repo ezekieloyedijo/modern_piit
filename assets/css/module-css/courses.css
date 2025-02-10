@@ -15,6 +15,7 @@
 }
 
 .courses-one__single {
+    /* height: 80vh ; */
     position: relative;
     display: block;
     background-color: #FCFCFC;
@@ -25,13 +26,16 @@
 }
 
 .courses-one__img-box {
+    /* border: 1px solid red; */
     position: relative;
     display: block;
+    height: 30vh;
 }
 
 .courses-one__img {
     position: relative;
     display: block;
+    height: 100%;
     overflow: hidden;
     border-radius: 16px;
 }
@@ -56,6 +60,7 @@
 
 .courses-one__img img {
     width: 100%;
+    height: 100%;
     border-radius: 16px;
     transform: scale(1.0);
     transition: all 1500ms ease;
@@ -69,6 +74,9 @@
     position: relative;
     display: block;
     margin-top: 15px;
+}
+.courses-one__content p{
+    padding: 2rem 0;
 }
 
 .courses-one__tag-and-meta {
@@ -225,11 +233,32 @@
 }
 
 .courses-one__btn-and-doller-box>span {
+    background-color: gold;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     font-size: 24px;
     font-weight: 600;
-    line-height: 34px;
+    /* line-height: 4px; */
     font-family: var(--fistudy-font-two);
     color: var(--fistudy-primary);
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(80deg);
+
+    }
 }
 
 .courses-one__carousel.owl-carousel .owl-stage-outer {
@@ -258,6 +287,7 @@
     position: absolute;
     bottom: -97px;
     left: 0;
+    
 }
 
 
