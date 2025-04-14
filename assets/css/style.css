@@ -2417,6 +2417,18 @@ flex-testimonial-video
   gap: 20px;
 }
 
+.hero-button-divider {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 20px;
+}
+
+.thm-btn-2 {
+  background-color: var(--fistudy-primary);
+  color: var(--fistudy-white);
+}
+
 /*--------------------------------------------------------------
 # End
 --------------------------------------------------------------*/
