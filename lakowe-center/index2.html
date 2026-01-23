@@ -1,0 +1,2748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourCompany | Professional Training & Courses</title>
+    <meta name="description" content="Empowering professionals with world-class courses and training programs. Join our community of learners and advance your career.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS Reset & Base Styles ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #687eff;
+            --primary-dark: #052143;
+            --accent: #f87a53;
+            --white: #ffffff;
+            --bg-light: #d1e3fb;
+            --bg-gradient: linear-gradient(135deg, #ffffff 0%, #d1e3fb 100%);
+            --text-dark: #052143;
+            --text-muted: #4a5568;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 0.625rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== Utility Classes ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--text-dark);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-light);
+            border-color: var(--primary);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-accent:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-dark);
+        }
+
+        .btn-sm {
+            padding: 0.625rem 1.25rem;
+            font-size: 0.875rem;
+        }
+
+        /* ===== Floating CTA ===== */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: var(--white);
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(100px);
+            pointer-events: none;
+        }
+
+        .floating-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .floating-cta.hidden {
+            opacity: 0;
+            transform: translateY(100px);
+            pointer-events: none;
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .floating-cta svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .floating-cta-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .floating-cta-text span:first-child {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .floating-cta-text span:last-child {
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.875rem 1.25rem;
+                font-size: 0.875rem;
+            }
+            
+            .floating-cta-text span:first-child {
+                display: none;
+            }
+        }
+
+        /* ===== Navbar ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-placeholder {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar-link {
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .navbar-link:hover {
+            color: var(--primary);
+        }
+
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-light);
+            border-radius: 50%;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .navbar-cta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            border-top: 1px solid var(--border);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu-social {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(5, 33, 67, 0.9) 0%, rgba(104, 126, 255, 0.7) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-text {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--accent), #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+
+        .hero-stat {
+            text-align: left;
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            margin-top: 0.25rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 0.6s ease 0.5s both;
+        }
+
+        .video-card {
+            position: relative;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 1rem;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .video-preview {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .video-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-preview iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+
+        .video-preview.playing iframe {
+            display: block;
+        }
+
+        .video-preview.playing img,
+        .video-preview.playing .video-overlay {
+            display: none;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 33, 67, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            border: none;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+        }
+
+        .play-button:hover svg {
+            color: var(--white);
+        }
+
+        .play-button svg {
+            width: 30px;
+            height: 30px;
+            color: var(--primary);
+            margin-left: 4px;
+        }
+
+        .video-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0.5rem 0.5rem;
+        }
+
+        .video-title {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .video-duration {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            background: var(--bg-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: -20px;
+            right: -30px;
+        }
+
+        .floating-card-2 {
+            bottom: 40px;
+            left: -40px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-card-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .floating-card-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .floating-card-text strong {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--text-dark);
+        }
+
+        .floating-card-text span {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== About Section ===== */
+        .about {
+            background: var(--bg-gradient);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .about-feature-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .about-feature span {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .about-stats-card {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .about-stat {
+            text-align: center;
+        }
+
+        .about-stat-number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+.about-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .about-cta-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .about-cta-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .about-cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== Courses Section ===== */
+        .courses {
+            background: var(--white);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .course-image {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.05);
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.375rem 0.75rem;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 50px;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .course-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .course-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .course-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .course-meta-item svg {
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+        }
+
+.course-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+        }
+
+        .course-footer-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .course-apply-btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .course-apply-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .course-apply-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .course-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .course-rating svg {
+            width: 16px;
+            height: 16px;
+            color: #fbbf24;
+            fill: #fbbf24;
+        }
+
+        .course-rating span {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .courses-cta {
+            text-align: center;
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .courses-cta p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* ===== Partners Section ===== */
+        .partners {
+            background: var(--bg-light);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .partner-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .partner-logo-placeholder {
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e8f0fe 100%);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .partner-logo span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        /* ===== Testimonials Section ===== */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+        }
+
+        .testimonials .section-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .testimonials .section-title {
+            color: var(--white);
+        }
+
+        .testimonials .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-rating svg {
+            width: 18px;
+            height: 18px;
+            color: #fbbf24;
+            fill: #fbbf24;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), #ffb347);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-author-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.125rem;
+        }
+
+        .testimonial-author-info span {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* ===== Contact Section ===== */
+        .contact {
+            background: var(--bg-gradient);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .contact-info > p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .contact-item-text h4 {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-form-wrapper {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(104, 126, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            margin-top: 0.5rem;
+        }
+
+        .form-submit .btn {
+            width: 100%;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding-top: 5rem;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand .logo-placeholder {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .footer-social .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .footer-social .social-link:hover {
+            background: var(--primary);
+        }
+
+        .footer-column h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .newsletter-form .btn {
+            padding: 0.75rem 1.25rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-legal a:hover {
+            color: var(--white);
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-stats-card {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: 2rem;
+            }
+
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-top {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero-stat {
+                text-align: center;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social,
+            .footer-links {
+                justify-content: center;
+                align-items: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 3.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-wrapper {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Modal Overlay */
+/* RESET BOX SIZING (THIS FIXES INPUT OVERFLOW) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.813); /* darker overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Show modal */
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal Content */
+.modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px; /* reduced size */
+  padding: 1.75rem;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  animation: modalPop 0.3s ease;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #444;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+/* Ensure form elements fit container */
+.contact-form,
+.contact-form-wrapper {
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Better spacing between rows */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  width: 100%;
+}
+
+/* Stack inputs on small screens */
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 92%;
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+/* Animation */
+@keyframes modalPop {
+  from {
+    transform: translateY(15px) scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+    </style>
+</head>
+<body>
+
+ <!-- Modal Overlay -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-content">
+    <button class="modal-close" id="closeModal">&times;</button>
+
+    <!-- YOUR FORM (UNCHANGED) -->
+    <div class="contact-form-wrapper">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xeqyknne"
+        method="post">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="course">Course of Interest</label>
+          <select id="course" name="course" required>
+            <option value="">Select a course...</option>
+            <option value="web-development">Full-Stack Web Development</option>
+            <option value="Cyber-Security">Cyber Security</option>
+            <option value="data-science">Data Science & Analytics</option>
+            <option value="digital-marketing">Digital Marketing Mastery</option>
+            <option value="CyberOps">CyberOps Networking</option>
+            <option value="ui-ux-design">UI/UX Design Bootcamp</option>
+            <option value="project-management">Project Management Pro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"
+            placeholder="Tell us about your goals and how we can help..." rows="4"></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-accent">Start My Enrollment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+     <!--  -->
+  <!-- Floating WhatsApp CTA -->
+    <!-- Replace YOUR_PHONE_NUMBER with your WhatsApp number (include country code, no + or spaces) -->
+    <!-- Example: 2348012345678 for Nigeria -->
+    <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="floating-cta" 
+       id="floatingCta"
+       aria-label="Enquire on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <div class="floating-cta-text">
+            <span>Chat with us</span>
+            <span>Enquire Now</span>
+        </div>
+    </a>
+
+
+
+    <!-- ===== Navbar ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="navbar-logo">
+          <!-- <div class="logo-placeholder">PIIT</div> -->
+          <!-- <span class="logo-text">PIIT</span> -->
+          <img src="./public/images/PIITBrochure.png" width="50" alt="PIIT" />
+        </a>
+
+            <div class="navbar-menu">
+                <ul class="navbar-links">
+                    <li><a href="#home" class="navbar-link">Home</a></li>
+                    <li><a href="#about" class="navbar-link">About</a></li>
+                    <li><a href="#courses" class="navbar-link">Courses</a></li>
+                    <li><a href="#partners" class="navbar-link">Partners</a></li>
+                    <li><a href="#contact" class="navbar-link">Contact</a></li>
+                </ul>
+
+                <div class="navbar-social">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+
+                <div class="navbar-cta">
+                    <a href="#courses" class="btn btn-primary">Explore Courses</a>
+                </div>
+            </div>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-menu-links">
+                <li><a href="#home" class="navbar-link">Home</a></li>
+                <li><a href="#about" class="navbar-link">About</a></li>
+                <li><a href="#courses" class="navbar-link">Courses</a></li>
+                <li><a href="#partners" class="navbar-link">Partners</a></li>
+                <li><a href="#contact" class="navbar-link">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-social">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+            </div>
+            <div class="mobile-menu-cta">
+                <a href="#courses" class="btn btn-primary">Explore Courses</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Hero Section ===== -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <img src="/images/building-hero.jpg" alt="Modern corporate building">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        Now Open - Lakowe center
+                    </div>
+                    <h1 class="hero-title">
+                        Empowering Your <span>Future</span> Through Education
+                    </h1>
+                    <p class="hero-description">
+                        Welcome to our new state-of-the-art facility. Discover world-class courses designed to accelerate your career and unlock your full potential.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#courses" class="btn btn-accent">Apply Today</a>
+                        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">50+</div>
+                            <div class="hero-stat-label">Expert Instructors</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">100+</div>
+                            <div class="hero-stat-label">Courses Available</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">10K+</div>
+                            <div class="hero-stat-label">Happy Students</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+            <div class="video-card">
+              <div class="video-preview" id="videoPreview">
+                <img
+                  src="./public/images/building-hero.jpg"
+                  alt="Building tour preview"
+                />
+                <iframe
+                  id="youtubeVideo"
+                  src=""
+                  data-src="https://www.youtube.com/embed/9tJut6spjWE"
+                  title="Building Tour Video"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                  "
+                  allowfullscreen
+                >
+                </iframe>
+                <div class="video-overlay" id="videoOverlay">
+                  <button
+                    class="play-button"
+                    id="playButton"
+                    aria-label="Play video"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="video-info">
+                <span class="video-title">Take a Virtual Tour</span>
+                <span class="video-duration">2:11 </span>
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-1">
+              <div class="floating-card-content">
+                <div class="floating-card-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </div>
+                <div class="floating-card-text">
+                  <strong>500+</strong>
+                  <span>Graduates</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="floating-card floating-card-2">
+              <div class="floating-card-content">
+                <div class="floating-card-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 20h9" />
+                    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                  </svg>
+                </div>
+                <div class="floating-card-text">
+                  <strong>98%</strong>
+                  <span>Success Rate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== About Section ===== -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-badge">About Us</span>
+                    <h2>Building Careers, Shaping Futures</h2>
+                    <p>
+                        Our new branch represents our commitment to expanding quality education access. With cutting-edge facilities and industry-leading instructors, we're here to transform your aspirations into achievements.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <span>Industry-Certified Curriculum</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <span>Hands-on Practical Training</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <span>Job Placement Assistance</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <span>Flexible Learning Schedules</span>
+                        </div>
+                    </div>
+                    <a href="#courses" class="btn btn-primary">Explore Our Programs</a>
+                </div>
+
+                <div class="about-visual">
+                    <div class="about-image">
+                        <img
+                src="./public/images/building-hero.jpg"
+                alt="Our new facility"
+              />
+                    </div>
+                    <div class="about-stats-card">
+                        <div class="about-stats-grid">
+                            <div class="about-stat">
+                                <div class="about-stat-number">15+</div>
+                                <div class="about-stat-label">Years Experience</div>
+                            </div>
+                            <div class="about-stat">
+                                <div class="about-stat-number">50+</div>
+                                <div class="about-stat-label">Expert Faculty</div>
+                            </div>
+                            <div class="about-stat">
+                                <div class="about-stat-number">20+</div>
+                                <div class="about-stat-label">Industry Partners</div>
+                            </div>
+                            <div class="about-stat">
+                                <div class="about-stat-number">95%</div>
+                                <div class="about-stat-label">Placement Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Join Cohort CTA -->
+            <div class="about-cta-section">
+                <h3>Ready to Start Your Journey?</h3>
+                <p>Join our next cohort and transform your career with industry-ready skills and expert mentorship.</p>
+                <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20join%20the%20next%20cohort" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="btn btn-accent">
+                    Join Cohort
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Courses Section ===== -->
+    <section class="courses section" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Programs</span>
+                <h2 class="section-title">Courses We Offer</h2>
+                <p class="section-subtitle">
+                    Choose from our comprehensive range of professional courses designed to meet industry demands and accelerate your career growth.
+                </p>
+            </div>
+
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=250&fit=crop" alt="Web Development">
+                        <span class="course-badge">Popular</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Technology</div>
+                        <h3 class="course-title">Full-Stack Web Development</h3>
+                        <p class="course-description">Master modern web technologies including React, Node.js, and database management.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>1.2k Students</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-footer-info">
+                            <span style="font-size: 14px;" class="course-price">Hybrid</span>
+                            <div class="course-rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20apply%20for%20the%20Full-Stack%20Web%20Development%20course" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="course-apply-btn">
+                            Apply Now
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Data Science">
+                        <span class="course-badge">New</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Data & Analytics</div>
+                        <h3 class="course-title">Data Science & Analytics</h3>
+                        <p class="course-description">Learn Python, machine learning, and data visualization for business insights.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>16 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>856 Students</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-footer-info">
+                            <span style="font-size: 14px;" class="course-price">Hybrid</span>
+                            <div class="course-rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20apply%20for%20the%20Data%20Science%20%26%20Analytics%20course" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="course-apply-btn">
+                            Apply Now
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Digital Marketing">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Marketing</div>
+                        <h3 class="course-title">Digital Marketing Mastery</h3>
+                        <p class="course-description">Master SEO, social media marketing, and paid advertising strategies.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>2.1k Students</span>
+                            </div>
+                        </div>
+                    </div>
+<div class="course-footer">
+                        <div class="course-footer-info">
+                            <span style="font-size: 14px;" class="course-price">Hybrid</span>
+                            <div class="course-rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>4.6</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20apply%20for%20the%20Digital%20Marketing%20Mastery%20course" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="course-apply-btn">
+                            Apply Now
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=250&fit=crop" alt="Business Management">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Networking</div>
+                        <h3 class="course-title">Cyber Security</h3>
+                        <p class="course-description">Prepare for entry-level cybersecurity roles with hands-on defense skills.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>945 Students</span>
+                            </div>
+                        </div>
+                    </div>
+<div class="course-footer">
+                        <div class="course-footer-info">
+                            <span style="font-size: 14px;" class="course-price">Hybrid</span>
+                            <div class="course-rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20apply%20for%20the%20Business%20Management%20course" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="course-apply-btn">
+                            Apply Now
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 5 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=250&fit=crop" alt="UI/UX Design">
+                        <span class="course-badge">Trending</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Design</div>
+                        <h3 class="course-title">UI/UX Design Bootcamp</h3>
+                        <p class="course-description">Create stunning user interfaces and seamless user experiences.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>14 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>1.5k Students</span>
+                            </div>
+                        </div>
+                    </div>
+<div class="course-footer">
+                        <div class="course-footer-info">
+                            <span style="font-size: 14px;" class="course-price">Hybrid</span>
+                            <div class="course-rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20apply%20for%20the%20UI%2FUX%20Design%20course" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="course-apply-btn">
+                            Apply Now
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course 6 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=250&fit=crop" alt="Project Management">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-category">Management</div>
+                        <h3 class="course-title">Project Management Pro</h3>
+                        <p class="course-description">Get PMP certified and learn agile methodologies for project success.</p>
+                        <div class="course-meta">
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>780 Students</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-footer-info">
+                            <span style="font-size: 14px;"  class="course-price">Hybrid</span>
+                            <div class="course-rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20apply%20for%20the%20Project%20Management%20course" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="course-apply-btn">
+                            Apply Now
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="courses-cta">
+                <p>Can't find what you're looking for? We offer custom training programs.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="#courses" class="btn btn-secondary">View All Courses</a>
+                    <a href="https://wa.me/+2348105879530?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="btn btn-primary">
+                        Enquire Now
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Partners Section ===== -->
+    <section class="partners section" id="partners">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Network</span>
+                <h2 class="section-title">Trusted Partners</h2>
+                <p class="section-subtitle">
+                    We collaborate with leading organizations to provide industry-relevant training and placement opportunities.
+                </p>
+            </div>
+
+<div class="partners-grid">
+                <div class="partner-logo">
+                    <div class="partner-logo-placeholder"><img src="./public/images/Cisco_logo.svg.png" alt=""></div>
+                    <span>Cisco</span>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-logo-placeholder"><img src="./public/images/Certiport_Logo.jpg" alt=""></div>
+                    <span>Certiport</span>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-logo-placeholder"><img src="./public/images/bellak_logo.jpg" alt="" width="80"></div>
+                    <span>Bellarks</span>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-logo-placeholder"><img src="./public/images/Cisco_logo.svg.png" alt=""></div>
+                    <span>Cisco</span>
+                </div>
+                <div class="partner-logo">
+                    <div class="partner-logo-placeholder"><img src="./public/images/Certiport_Logo.jpg" alt=""></div>
+                    <span>Certiport</span>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Testimonials Section ===== -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Testimonials</span>
+                <h2 class="section-title">What Our Students Say</h2>
+                <p class="section-subtitle">
+                    Hear from our graduates who have transformed their careers through our programs.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "The web development course completely changed my career trajectory. Within 3 months of graduating, I landed a job at a top tech company."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">VS</div>
+                        <div class="testimonial-author-info">
+                            <h4>Victor Simeon</h4>
+                            <span>Software Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "The instructors are incredibly knowledgeable and supportive. The hands-on projects gave me real-world experience that employers value."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DA</div>
+                        <div class="testimonial-author-info">
+                            <h4>Doris Ann</h4>
+                            <span>Data Analyst</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Best investment I've made in my career. The networking opportunities and career support services are outstanding."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">FR</div>
+                        <div class="testimonial-author-info">
+                            <h4>Franklin Roman</h4>
+                            <span>Marketing Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Contact Section ===== -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-badge">Get in Touch</span>
+                    <h2>Ready to Start Your Journey?</h2>
+                    <p>
+                        Have questions about our courses or want to schedule a campus visit? Our team is here to help you take the first step toward your new career.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Visit Us</h4>
+                                <p>Amazing Grace Mall<br>Lakowe Lekki Epe Road, Lagos</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Call Us</h4>
+                                <p>08105879530<br>Mon - Fri: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </div>
+                            <div class="contact-item-text">
+                                <h4>Email Us</h4>
+                                <p>enquiries@piit.com.ng</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xeqyknne"
+                  method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="course">Course of Interest</label>
+                            <select id="course" name="course" required>
+                                <option value="">Select a course...</option>
+                                <option value="web-development">Full-Stack Web Development</option>
+                                <option value="Cyber-Security">Cyber Security</option>
+                                <option value="data-science">Data Science & Analytics</option>
+                                <option value="digital-marketing">Digital Marketing Mastery</option>
+                                <option value="CyberOps">CyberOps Networking</option>
+                                <option value="ui-ux-design">UI/UX Design Bootcamp</option>
+                                <option value="project-management">Project Management Pro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your goals and how we can help..." rows="4"></textarea>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-accent">Start My Enrollment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="navbar-logo">
+              <a href="#" class="navbar-logo">
+                <!-- <div class="logo-placeholder">PIIT</div> -->
+                <!-- <span class="logo-text">PIIT</span> -->
+                <img
+                  src="./public/images/PIITBrochure.png"
+                  width="50"
+                  alt="PIIT"
+                />
+              </a>
+              <span class="logo-text" style="color: white">PIIT</span>
+            </div>
+                    <p>
+                        Empowering professionals with world-class education and training programs. Join our community and transform your career.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#about" class="footer-link">About Us</a></li>
+                        <li><a href="#courses" class="footer-link">Courses</a></li>
+                        <li><a href="#partners" class="footer-link">Partners</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Courses</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Web Development</a></li>
+                        <li><a href="#" class="footer-link">Data Science</a></li>
+                        <li><a href="#" class="footer-link">Digital Marketing</a></li>
+                        <li><a href="#" class="footer-link">Business Management</a></li>
+                        <li><a href="#" class="footer-link">UI/UX Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on new courses, events, and special offers.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-accent">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 PIIT. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu .navbar-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+// YouTube Video Player
+    const videoPreview = document.getElementById('videoPreview');
+    const videoOverlay = document.getElementById('videoOverlay');
+    const youtubeVideo = document.getElementById('youtubeVideo');
+    
+    videoOverlay.addEventListener('click', () => {
+        // Get the data-src and set it as the actual src to load the video
+        const videoSrc = youtubeVideo.getAttribute('data-src');
+        youtubeVideo.setAttribute('src', videoSrc);
+        // Add playing class to show iframe and hide thumbnail
+        videoPreview.classList.add('playing');
+    });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            // e.preventDefault();
+            
+           // const formData = new FormData(contactForm);
+           // const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to your server
+            // console.log('Form submitted:', data);
+            
+            // alert('Thank you for your message! We will get back to you soon.');
+           // contactForm.reset();
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            
+            // Here you would typically send the email to your server
+            console.log('Newsletter subscription:', email);
+            
+            alert('Thank you for subscribing to our newsletter!');
+            newsletterForm.reset();
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.course-card, .partner-logo, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+    // Floating CTA visibility based on scroll
+    const floatingCta = document.getElementById('floatingCta');
+    const footer = document.querySelector('.footer');
+    
+    function updateFloatingCta() {
+        const scrollY = window.scrollY;
+        const footerTop = footer.getBoundingClientRect().top + window.scrollY;
+        const windowHeight = window.innerHeight;
+        const currentBottom = scrollY + windowHeight;
+        
+        // Show after scrolling 400px
+        if (scrollY > 400) {
+            floatingCta.classList.add('visible');
+        } else {
+            floatingCta.classList.remove('visible');
+        }
+        
+        // Hide when near footer (100px before footer)
+        if (currentBottom >= footerTop - 100) {
+            floatingCta.classList.add('hidden');
+        } else {
+            floatingCta.classList.remove('hidden');
+        }
+    }
+    
+    window.addEventListener('scroll', updateFloatingCta);
+    updateFloatingCta();
+
+    // Modal overlay
+    document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("contactModal");
+    const closeBtn = document.getElementById("closeModal");
+
+    // Show modal on page load
+    setTimeout(() => {
+      modal.classList.add("active");
+    }, 300);
+
+    // Close modal
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("active");
+    });
+
+    // Close when clicking outside content
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+      }
+    });
+  });
+    </script>
+
+    
+</body>
+</html>
