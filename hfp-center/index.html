@@ -1,0 +1,1237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HFP Center - Professional Training & Development</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #687eff;
+        --primary-dark: #052143;
+        --accent: #f87a53;
+        --white: #ffffff;
+        --bg-light: #f5f8fd;
+        --gray: #6b7280;
+        --gray-light: #e5e7eb;
+        --text-dark: #1f2937;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        color: var(--text-dark);
+        background: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: var(--white);
+        border-bottom: 1px solid var(--gray-light);
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
+      .header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary-dark);
+        text-decoration: none;
+      }
+
+      .logo-placeholder {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .nav-cta {
+        background: var(--primary);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-cta:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(104, 126, 255, 0.3);
+      }
+
+      /* ===== HERO SECTION ===== */
+      .hero {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 600px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.2;
+        color: var(--primary-dark);
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        color: var(--gray);
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .stat {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--gray-light);
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .stat-label {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: var(--white);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(104, 126, 255, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--bg-light);
+        border-color: var(--primary-dark);
+        color: var(--primary-dark);
+      }
+
+      .hero-image {
+        position: relative;
+        height: 500px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ===== FEATURES SECTION ===== */
+      .features {
+        background: linear-gradient(
+          180deg,
+          var(--bg-light) 0%,
+          var(--white) 100%
+        );
+        padding: 5rem 2rem;
+      }
+
+      .features-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        color: var(--primary-dark);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--gray);
+        font-size: 1.1rem;
+        margin-bottom: 4rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        padding: 2.5rem;
+        background: var(--white);
+        border-radius: 16px;
+        border: 1px solid var(--gray-light);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--primary);
+        box-shadow: 0 15px 40px rgba(104, 126, 255, 0.15);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--primary-dark);
+      }
+
+      .feature-card p {
+        color: var(--gray);
+        line-height: 1.8;
+      }
+
+      /* ===== COURSES SECTION ===== */
+      .courses {
+        padding: 5rem 2rem;
+      }
+
+      .courses-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .course-card {
+        background: var(--white);
+        border: 1px solid var(--gray-light);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .course-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--primary);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .course-header {
+        height: 180px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: var(--white);
+      }
+
+      .course-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        width: fit-content;
+        margin-bottom: 1rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .course-card h3 {
+        font-size: 1.3rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+
+      .course-body {
+        padding: 2rem;
+      }
+
+      .course-meta {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+        color: var(--gray);
+      }
+
+      .course-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .course-description {
+        color: var(--gray);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .course-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--gray-light);
+      }
+
+      .course-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .enroll-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .enroll-btn:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      /* ===== PARTNERS SECTION ===== */
+      .partners {
+        background: var(--primary-dark);
+        padding: 5rem 2rem;
+      }
+
+      .partners-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .partners-title {
+        color: var(--white);
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .partner-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .partner-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-4px);
+      }
+
+      .partner-logo-space {
+        width: 120px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px dashed rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .partner-name {
+        color: var(--white);
+        font-weight: 600;
+        text-align: center;
+      }
+
+      /* ===== CONTACT SECTION ===== */
+      .contact {
+        padding: 5rem 2rem;
+        background: linear-gradient(
+          180deg,
+          var(--white) 0%,
+          var(--bg-light) 100%
+        );
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .contact-info h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary-dark);
+        margin-bottom: 2rem;
+      }
+
+      .contact-item {
+        margin-bottom: 2rem;
+      }
+
+      .contact-label {
+        color: var(--gray);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-value {
+        font-size: 1.1rem;
+        color: var(--text-dark);
+        font-weight: 500;
+      }
+
+      .contact-form {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 16px;
+        border: 1px solid var(--gray-light);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        border: 1px solid var(--gray-light);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(104, 126, 255, 0.1);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 1rem;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+
+      .submit-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(104, 126, 255, 0.3);
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--primary-dark);
+        color: var(--white);
+        padding: 3rem 2rem 1.5rem;
+      }
+
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-column h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-column a,
+      .footer-column p {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        margin-bottom: 0.75rem;
+        display: block;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-column a:hover {
+        color: var(--primary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        margin-bottom: 0;
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.9rem;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .hero-image {
+          height: 300px;
+        }
+
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .nav-cta {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="header-container">
+        <a href="#" class="logo">
+          <div class="logo-placeholder">HFP</div>
+          HFP Center
+        </a>
+        <nav>
+          <a href="#courses">Courses</a>
+          <a href="#partners">Partners</a>
+          <a href="#contact">Contact</a>
+          <a href="#" class="nav-cta">Enquire Now</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Transform Your Career Today</h1>
+        <p>
+          Unlock your potential with industry-leading courses and expert
+          mentorship designed to accelerate your professional growth and
+          success.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Happy Graduates</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Expert Instructors</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Job Placement</div>
+          </div>
+        </div>
+
+        <div class="hero-buttons">
+          <button class="btn btn-primary">Explore Courses</button>
+          <button class="btn btn-secondary">Learn More</button>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="/public/images/hfp-hero-building.jpg"
+          alt="HFP Training Center"
+        />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="features-container">
+        <h2 class="section-title">Why Choose HFP Center?</h2>
+        <p class="section-subtitle">
+          We combine industry expertise with personalized learning to create
+          transformative educational experiences.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Industry-Ready Skills</h3>
+            <p>
+              Learn cutting-edge skills that are in high demand across top
+              companies, ensuring you're always job-ready.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">👨‍🏫</div>
+            <h3>Expert Mentorship</h3>
+            <p>
+              Get personalized guidance from experienced professionals who have
+              excelled in their respective fields.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3>Career Support</h3>
+            <p>
+              Benefit from comprehensive career coaching, job placement
+              assistance, and lifetime alumni network access.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Hands-On Learning</h3>
+            <p>
+              Learn by doing with real-world projects, case studies, and
+              practical assignments that build your portfolio.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⏰</div>
+            <h3>Flexible Schedule</h3>
+            <p>
+              Study at your own pace with options for full-time, part-time, and
+              weekend classes to fit your lifestyle.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Certification</h3>
+            <p>
+              Earn industry-recognized certificates that boost your credibility
+              and career prospects worldwide.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+      <div class="courses-container">
+        <h2 class="section-title">Our Professional Courses</h2>
+        <p class="section-subtitle">
+          Choose from our comprehensive range of carefully curated courses
+          designed for career advancement.
+        </p>
+
+        <div class="courses-grid">
+          <div class="course-card">
+            <div class="course-header">
+              <span class="course-badge">Beginner</span>
+              <h3>Full-Stack Web Development</h3>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <div class="course-meta-item">📅 12 Weeks</div>
+                <div class="course-meta-item">⭐ 4.9/5</div>
+              </div>
+              <p class="course-description">
+                Master modern web development from frontend to backend with
+                hands-on projects.
+              </p>
+              <div class="course-footer">
+                <span class="course-price">$1,299</span>
+                <a
+                  href="https://wa.me/YOUR_PHONE_NUMBER?text=I%20want%20to%20enroll%20in%20Full-Stack%20Web%20Development"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="enroll-btn"
+                  >Enroll Now</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <span class="course-badge">Intermediate</span>
+              <h3>Data Science & Analytics</h3>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <div class="course-meta-item">📅 14 Weeks</div>
+                <div class="course-meta-item">⭐ 4.8/5</div>
+              </div>
+              <p class="course-description">
+                Learn to extract insights from data and make data-driven
+                business decisions.
+              </p>
+              <div class="course-footer">
+                <span class="course-price">$1,499</span>
+                <a
+                  href="https://wa.me/YOUR_PHONE_NUMBER?text=I%20want%20to%20enroll%20in%20Data%20Science%20%26%20Analytics"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="enroll-btn"
+                  >Enroll Now</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <span class="course-badge">Beginner</span>
+              <h3>Digital Marketing Mastery</h3>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <div class="course-meta-item">📅 8 Weeks</div>
+                <div class="course-meta-item">⭐ 4.6/5</div>
+              </div>
+              <p class="course-description">
+                Become a digital marketing expert with SEO, social media, and
+                content strategies.
+              </p>
+              <div class="course-footer">
+                <span class="course-price">$799</span>
+                <a
+                  href="https://wa.me/YOUR_PHONE_NUMBER?text=I%20want%20to%20enroll%20in%20Digital%20Marketing%20Mastery"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="enroll-btn"
+                  >Enroll Now</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <span class="course-badge">Intermediate</span>
+              <h3>UI/UX Design Fundamentals</h3>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <div class="course-meta-item">📅 10 Weeks</div>
+                <div class="course-meta-item">⭐ 4.9/5</div>
+              </div>
+              <p class="course-description">
+                Design beautiful user experiences with industry-standard tools
+                and principles.
+              </p>
+              <div class="course-footer">
+                <span class="course-price">$1,099</span>
+                <a
+                  href="https://wa.me/YOUR_PHONE_NUMBER?text=I%20want%20to%20enroll%20in%20UI%2FUX%20Design%20Fundamentals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="enroll-btn"
+                  >Enroll Now</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <span class="course-badge">Advanced</span>
+              <h3>Business Management & Leadership</h3>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <div class="course-meta-item">📅 12 Weeks</div>
+                <div class="course-meta-item">⭐ 4.7/5</div>
+              </div>
+              <p class="course-description">
+                Develop leadership skills and master modern business management
+                strategies.
+              </p>
+              <div class="course-footer">
+                <span class="course-price">$899</span>
+                <a
+                  href="https://wa.me/YOUR_PHONE_NUMBER?text=I%20want%20to%20enroll%20in%20Business%20Management%20%26%20Leadership"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="enroll-btn"
+                  >Enroll Now</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <span class="course-badge">Intermediate</span>
+              <h3>Project Management Professional</h3>
+            </div>
+            <div class="course-body">
+              <div class="course-meta">
+                <div class="course-meta-item">📅 10 Weeks</div>
+                <div class="course-meta-item">⭐ 4.7/5</div>
+              </div>
+              <p class="course-description">
+                Master project management methodologies and lead teams to
+                successful delivery.
+              </p>
+              <div class="course-footer">
+                <span class="course-price">$799</span>
+                <a
+                  href="https://wa.me/YOUR_PHONE_NUMBER?text=I%20want%20to%20enroll%20in%20Project%20Management%20Professional"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="enroll-btn"
+                  >Enroll Now</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+      <div class="partners-container">
+        <h2 class="section-title partners-title">
+          Trusted by Industry Leaders
+        </h2>
+
+        <div class="partners-grid">
+          <div class="partner-card">
+            <div class="partner-logo-space">Your Logo</div>
+            <div class="partner-name">TechCorp</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-space">Your Logo</div>
+            <div class="partner-name">DataPro</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-space">Your Logo</div>
+            <div class="partner-name">CloudNet</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-space">Your Logo</div>
+            <div class="partner-name">InnoTech</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-space">Your Logo</div>
+            <div class="partner-name">FutureLab</div>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-logo-space">Your Logo</div>
+            <div class="partner-name">GlobalNet</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">
+          Have questions? We're here to help. Reach out to us anytime!
+        </p>
+
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+
+            <div class="contact-item">
+              <div class="contact-label">📍 Address</div>
+              <div class="contact-value">HFP Center, Lagos, Nigeria</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">📞 Phone</div>
+              <div class="contact-value">+234 (0) 123 456 7890</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">📧 Email</div>
+              <div class="contact-value">info@hfpcenter.com</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">⏰ Hours</div>
+              <div class="contact-value">Mon - Fri: 9:00 AM - 6:00 PM</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Follow Us</div>
+              <div class="social-links">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Facebook"
+                  >f</a
+                >
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Twitter"
+                  >𝕏</a
+                >
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                  >in</a
+                >
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Instagram"
+                  >📷</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>About HFP Center</h4>
+            <p>
+              Empowering professionals with world-class education and training
+              for over a decade.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <a href="#courses">Courses</a>
+            <a href="#partners">Partners</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <a href="#">Blog</a>
+            <a href="#">FAQ</a>
+            <a href="#">Testimonials</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 HFP Center. All rights reserved. | Designed with ❤️ for
+            excellence.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll effect
+      const header = document.getElementById('header')
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled')
+        } else {
+          header.classList.remove('scrolled')
+        }
+      })
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+          const target = document.querySelector(this.getAttribute('href'))
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            })
+          }
+        })
+      })
+
+      // Form submission
+      document
+        .querySelector('.contact-form')
+        .addEventListener('submit', function (e) {
+          e.preventDefault()
+          const name = document.getElementById('name').value
+          const email = document.getElementById('email').value
+          const subject = document.getElementById('subject').value
+          const message = document.getElementById('message').value
+
+          if (name && email && subject && message) {
+            alert(
+              `Thank you ${name}! We've received your message and will get back to you shortly at ${email}.`,
+            )
+            this.reset()
+          }
+        })
+
+      // Replace WhatsApp number
+      // Change YOUR_PHONE_NUMBER to your actual WhatsApp number (e.g., 2348012345678)
+      document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
+        if (link.href.includes('YOUR_PHONE_NUMBER')) {
+          link.href = '#' // Remove link if not configured
+        }
+      })
+    </script>
+  </body>
+</html>
