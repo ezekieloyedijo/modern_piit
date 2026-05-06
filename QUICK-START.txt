@@ -1,0 +1,265 @@
+================================================================================
+                    CERTIFICATE SYSTEM - QUICK START GUIDE
+================================================================================
+
+🚀 FASTEST WAY TO GET STARTED (5 STEPS)
+════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Edit config.php (2 minutes)
+────────────────────────────────────────────────────────────────────────────
+Find and update these lines:
+
+OLD:
+    define('DB_HOST', 'localhost');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+
+→ Change to your cPanel MySQL credentials
+
+OLD:
+    define('ADMIN_USERNAME', 'admin');
+    define('ADMIN_PASSWORD', 'PIIT@2024Secure');
+
+→ Change to your desired username/password
+
+STEP 2: Create Database in cPanel (3 minutes)
+────────────────────────────────────────────────────────────────────────────
+1. Log into cPanel
+2. Go to: MySQL Databases
+3. Create database: piit_certificates
+4. Create user with strong password
+5. Add user to database with ALL privileges
+
+STEP 3: Upload Files via cPanel (5 minutes)
+────────────────────────────────────────────────────────────────────────────
+Upload these files to your website root:
+✓ config.php
+✓ db_connect.php
+✓ init_db.php
+✓ admin-login.php
+✓ admin-dashboard.php
+✓ admin-logout.php
+✓ api-upload.php
+✓ api-search.php
+✓ certificate-query.html
+✓ assets/css/module-css/certificate-query.css (upload to subdirectory)
+
+STEP 4: Initialize Database (1 minute)
+────────────────────────────────────────────────────────────────────────────
+1. Open browser: https://yoursite.com/init_db.php
+2. You should see green success messages
+3. DELETE init_db.php immediately after!
+
+STEP 5: Test Everything (2 minutes)
+────────────────────────────────────────────────────────────────────────────
+✓ Login: https://yoursite.com/admin-login.php
+✓ Upload test certificate
+✓ Search: https://yoursite.com/certificate-query.html
+✓ Download test
+
+DONE! ✅
+
+================================================================================
+📱 ADMIN QUICK REFERENCE
+════════════════════════════════════════════════════════════════════════════
+
+Access Admin Panel:
+👉 https://yoursite.com/admin-login.php
+
+Username: (set in config.php)
+Password: (set in config.php)
+
+Once logged in, you can:
+✓ Upload certificates (drag & drop or click)
+✓ See all uploaded certificates
+✓ View certificates before downloading
+✓ Delete certificates
+✓ Automatic logout after 1 hour
+
+File Types Accepted:
+✓ JPG, JPEG, PNG, GIF (images)
+✓ PDF (portable documents)
+✓ BMP (bitmap images)
+
+Max File Size: 50MB
+
+================================================================================
+🔍 STUDENT QUICK REFERENCE
+════════════════════════════
+════════════════════════
+
+Access Certificate Search:
+👉 https://yoursite.com/certificate-query.html
+
+How to Search:
+1. Type student name (full or partial)
+2. Press Enter or click Search button
+3. View or download certificate
+
+Features:
+✓ Works on mobile & desktop
+✓ Real-time search
+✓ View in browser
+✓ Download files
+✓ Modern design
+
+================================================================================
+🔧 CONFIGURATION FILE LOCATIONS & CHANGES
+════════════════════════════════════════════════════════════════════════════
+
+File: config.php (MAIN CONFIGURATION FILE)
+Location: Website root directory
+
+Key Settings to Update:
+
+Line 5-7:   Database connection (REQUIRED)
+            define('DB_HOST', 'localhost');
+            define('DB_USER', 'your_username');
+            define('DB_PASS', 'your_password');
+
+Line 8:     Database name
+            define('DB_NAME', 'piit_certificates');
+
+Line 11-12: File upload settings
+            define('MAX_FILE_SIZE', 50 * 1024 * 1024);
+            define('ALLOWED_TYPES', ['jpg', 'jpeg', ...]);
+
+Line 16-17: Admin credentials (CHANGE THESE!)
+            define('ADMIN_USERNAME', 'admin');
+            define('ADMIN_PASSWORD', 'PIIT@2024Secure');
+
+Line 18:    Session timeout (in seconds)
+            define('SESSION_TIMEOUT', 3600);
+
+ALL OTHER FILES: Do not modify unless you know PHP!
+
+================================================================================
+⚠️  IMPORTANT SECURITY CHECKLIST
+════════════════════════════════════════════════════════════════════════════
+
+After Setup (DO THIS!):
+☐ Delete init_db.php
+☐ Change admin username from 'admin' to something unique
+☐ Set a strong password
+☐ Enable HTTPS/SSL on your website
+☐ Set folder permissions to 755
+
+Production Recommendations:
+☐ Use password hashing in PHP
+☐ Add rate limiting to login
+☐ Regular database backups
+☐ Monitor file uploads
+☐ Keep PHP updated
+☐ Add Web Application Firewall
+
+================================================================================
+❓ MOST COMMON ISSUES & FIXES
+════════════════════════════════════════════════════════════════════════════
+
+❌ "Connection failed" error
+✅ Check config.php - verify DB_USER and DB_PASS match cPanel credentials
+
+❌ Upload button doesn't work
+✅ Ensure /certificates/ folder exists and has 755 permissions
+✅ Check MAX_FILE_SIZE doesn't exceed cPanel upload limit
+
+❌ Search returns nothing
+✅ Verify certificates were actually uploaded
+✅ Check database connection is working
+
+❌ Can't login
+✅ Verify username/password in config.php
+✅ Clear browser cache and try again
+✅ Check that cookies are enabled
+
+❌ File won't delete
+✅ Check /certificates/ folder permissions
+✅ Verify MySQL user has DELETE privilege
+✅ Try manual deletion via cPanel File Manager
+
+================================================================================
+📊 DATABASE STRUCTURE
+════════════════════════════════════════════════════════════════════════════
+
+Certificates Table:
+┌─────────────────┬─────────────┬──────────────────────────────┐
+│ Column Name     │ Type        │ Purpose                      │
+├─────────────────┼─────────────┼──────────────────────────────┤
+│ id              │ INT         │ Unique identifier            │
+│ student_name    │ VARCHAR(255)│ Name of student              │
+│ certificate_file│ VARCHAR(255)│ Filename on server           │
+│ file_type       │ VARCHAR(50) │ File extension (PDF, JPG)    │
+│ upload_date     │ TIMESTAMP   │ When uploaded                │
+│ uploaded_by     │ VARCHAR(255)│ Admin who uploaded           │
+└─────────────────┴─────────────┴──────────────────────────────┘
+
+Admin Logs Table:
+┌─────────────────┬──────────────┬────────────────────────────────┐
+│ Column Name     │ Type         │ Purpose                        │
+├─────────────────┼──────────────┼────────────────────────────────┤
+│ id              │ INT          │ Unique identifier              │
+│ action          │ VARCHAR(255) │ Action performed (upload, etc) │
+│ admin_user      │ VARCHAR(255) │ Admin username                 │
+│ description     │ TEXT         │ Details of action              │
+│ action_date     │ TIMESTAMP    │ When action occurred           │
+└─────────────────┴──────────────┴────────────────────────────────┘
+
+================================================================================
+🌐 API ENDPOINTS (TECHNICAL)
+════════════════════════════════════════════════════════════════════════════
+
+Search API:
+  GET: /api-search.php?q=student_name
+  Returns: JSON with matching certificates
+
+Upload API:
+  POST: /api-upload.php
+  Parameters: student_name, certificate_file
+  Returns: JSON success/error response
+
+================================================================================
+📞 SUPPORT & HELP
+════════════════════════════════════════════════════════════════════════════
+
+For cPanel Issues:
+👉 Contact your hosting provider
+
+For PHP/Database Issues:
+👉 Enable error logging in cPanel
+👉 Check error logs via cPanel Raw Access Logs
+
+For Certificate System:
+👉 See detailed guide: CERTIFICATE-SETUP-GUIDE.txt
+
+================================================================================
+✅ FINAL CHECKLIST
+════════════════════════════════════════════════════════════════════════════
+
+Pre-Launch:
+☐ Database created with correct credentials
+☐ config.php updated with DB credentials
+☐ Admin username and password changed
+☐ All PHP files uploaded to root
+☐ certificate-query.html uploaded
+☐ CSS file uploaded to correct path
+☐ init_db.php run and then DELETED
+☐ /certificates/ folder created with 755 permissions
+
+Testing:
+☐ Admin login works
+☐ Certificate upload works
+☐ Download works
+☐ Search functionality works
+☐ Delete functionality works
+☐ Mobile view looks good
+
+Launch:
+☐ Delete init_db.php if not already deleted
+☐ Add "Certificates" link to main navigation
+☐ Enable HTTPS if possible
+☐ Monitor for errors
+☐ Test with real student names
+
+================================================================================
+                    HAPPY CERTIFICATE MANAGING! 🎓
+================================================================================
