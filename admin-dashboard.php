@@ -1,514 +1,640 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Certificate Management</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .admin-dashboard-wrapper {
-            min-height: 100vh;
-            background: #f5f7fa;
-            padding: 20px;
-        }
-        
-        .admin-header {
-            background: linear-gradient(135deg, #687eff 0%, #5566dd 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(104, 126, 255, 0.3);
-        }
-        
-        .admin-header h1 {
-            color: white;
-            margin: 0;
-            font-size: 28px;
-        }
-        
-        .logout-btn {
-            background: white;
-            color: #687eff;
-            padding: 10px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .logout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .admin-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .card-section {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
-        }
-        
-        .card-section h2 {
-            color: #052143;
-            margin-bottom: 30px;
-            font-size: 24px;
-            font-weight: 700;
-            border-bottom: 3px solid #687eff;
-            padding-bottom: 15px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #052143;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #d1e3fb;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            font-family: var(--fistudy-font);
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #687eff;
-            box-shadow: 0 0 0 3px rgba(104, 126, 255, 0.1);
-        }
-        
-        .file-upload-area {
-            border: 2px dashed #d1e3fb;
-            border-radius: 12px;
-            padding: 40px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #f9fbff;
-        }
-        
-        .file-upload-area:hover {
-            border-color: #687eff;
-            background: #f0f5ff;
-        }
-        
-        .file-upload-area i {
-            font-size: 48px;
-            color: #687eff;
-            margin-bottom: 15px;
-        }
-        
-        .file-upload-area p {
-            color: #6b778b;
-            margin: 0;
-            font-size: 16px;
-        }
-        
-        .file-upload-area .small {
-            color: #999;
-            font-size: 12px;
-            display: block;
-            margin-top: 10px;
-        }
-        
-        .file-input {
-            display: none;
-        }
-        
-        .btn-upload {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #687eff 0%, #5566dd 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-        
-        .btn-upload:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(104, 126, 255, 0.4);
-        }
-        
-        .alert-box {
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .alert-danger {
-            background: #fee;
-            color: #c33;
-            border: 1px solid #fcc;
-        }
-        
-        .alert-success {
-            background: #efe;
-            color: #3c3;
-            border: 1px solid #cfc;
-        }
-        
-        .alert-info {
-            background: #eef;
-            color: #338;
-            border: 1px solid #ccf;
-        }
-        
-        .upload-history {
-            margin-top: 40px;
-        }
-        
-        .upload-history h3 {
-            color: #052143;
-            margin-bottom: 20px;
-            font-size: 18px;
-            font-weight: 700;
-        }
-        
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-        
-        .table thead {
-            background: #f5f7fa;
-        }
-        
-        .table th {
-            padding: 15px;
-            text-align: left;
-            color: #052143;
-            font-weight: 700;
-            border-bottom: 2px solid #d1e3fb;
-        }
-        
-        .table td {
-            padding: 15px;
-            border-bottom: 1px solid #e8eef5;
-        }
-        
-        .table tr:hover {
-            background: #f9fbff;
-        }
-        
-        .delete-btn {
-            background: #f87a53;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        
-        .delete-btn:hover {
-            background: #e65a33;
-        }
-        
-        .view-btn {
-            background: #687eff;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .view-btn:hover {
-            background: #5566dd;
-        }
-        
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .spinner {
-            border: 3px solid #d1e3fb;
-            border-top: 3px solid #687eff;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
-</head>
-<body>
-    <?php
-    require_once 'config.php';
-    require_once 'db_connect.php';
-    
-    // Check if admin is logged in
-    if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-        header("Location: admin-login.php");
-        exit();
-    }
-    
-    // Check session timeout
-    if (isset($_SESSION['login_time']) && (time() - $_SESSION['login_time']) > SESSION_TIMEOUT) {
-        session_destroy();
-        echo '<script>alert("Session expired. Please login again."); window.location.href = "admin-login.php";</script>';
-        exit();
-    }
-    
-    // Update last activity time
-    $_SESSION['login_time'] = time();
-    
-    // Handle certificate deletion
-    if ($_POST && isset($_POST['action']) && $_POST['action'] === 'delete' && isset($_POST['cert_id'])) {
-        $cert_id = (int)$_POST['cert_id'];
-        
-        // Get file path
-        $result = $conn->query("SELECT certificate_file FROM certificates WHERE id = $cert_id");
+<?php
+require_once 'config.php';
+require_once 'db_connect.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: admin-login.php");
+    exit();
+}
+
+if (isset($_SESSION['login_time']) && (time() - $_SESSION['login_time']) > SESSION_TIMEOUT) {
+    session_destroy();
+    header("Location: admin-login.php?expired=1");
+    exit();
+}
+
+$_SESSION['login_time'] = time();
+
+
+// DELETE CERTIFICATE
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete') {
+
+    if (isset($_POST['cert_id'])) {
+
+        $cert_id = (int) $_POST['cert_id'];
+
+        $stmt = $conn->prepare("SELECT certificate_file FROM certificates WHERE id = ?");
+        $stmt->bind_param("i", $cert_id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
         if ($result && $result->num_rows > 0) {
+
             $row = $result->fetch_assoc();
+
             $file_path = UPLOAD_DIR . $row['certificate_file'];
-            
-            // Delete file from server
+
             if (file_exists($file_path)) {
                 unlink($file_path);
             }
-            
-            // Delete from database
-            $conn->query("DELETE FROM certificates WHERE id = $cert_id");
-            $delete_message = "Certificate deleted successfully!";
+
+            $stmt = $conn->prepare("DELETE FROM certificates WHERE id = ?");
+            $stmt->bind_param("i", $cert_id);
+            $stmt->execute();
+
+            header("Location: admin-dashboard.php?deleted=1");
+            exit();
         }
     }
-    
-    // Fetch all certificates
-    $certificates = [];
-    $result = $conn->query("SELECT * FROM certificates ORDER BY upload_date DESC LIMIT 50");
-    if ($result) {
-        while ($row = $result->fetch_assoc()) {
-            $certificates[] = $row;
-        }
+}
+
+
+// SEARCH
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+if (!empty($search)) {
+
+    $searchTerm = "%" . $search . "%";
+
+    $stmt = $conn->prepare("
+        SELECT * FROM certificates
+        WHERE student_name LIKE ?
+        ORDER BY upload_date DESC
+    ");
+
+    $stmt->bind_param("s", $searchTerm);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+} else {
+
+    $result = $conn->query("
+        SELECT * FROM certificates
+        ORDER BY upload_date DESC
+        LIMIT 50
+    ");
+}
+
+$certificates = [];
+
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $certificates[] = $row;
     }
-    ?>
-    
-    <div class="admin-dashboard-wrapper">
-        <div class="admin-container">
-            <div class="admin-header">
-                <div>
-                    <h1>📚 Certificate Management System</h1>
-                    <p style="margin: 0; opacity: 0.9;">Welcome, <strong><?php echo htmlspecialchars($_SESSION['admin_username']); ?></strong></p>
-                </div>
-                <a href="admin-logout.php" class="logout-btn">🚪 Logout</a>
-            </div>
-            
-            <!-- Upload Section -->
-            <div class="card-section">
-                <h2>📤 Upload Student Certificate</h2>
-                
-                <?php 
-                if (isset($delete_message)) {
-                    echo '<div class="alert-box alert-success">✓ ' . $delete_message . '</div>';
-                }
-                ?>
-                
-                <form id="uploadForm" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="student_name">Student Name *</label>
-                        <input type="text" id="student_name" name="student_name" placeholder="Enter full student name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="certificate_file">Certificate File (Image or PDF) *</label>
-                        <div class="file-upload-area" onclick="document.getElementById('certificate_file').click();">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Click to upload or drag and drop</p>
-                            <span class="small">Supported: JPG, PNG, GIF, PDF, BMP (Max 50MB)</span>
-                        </div>
-                        <input type="file" id="certificate_file" name="certificate_file" accept=".jpg,.jpeg,.png,.gif,.pdf,.bmp" required>
-                    </div>
-                    
-                    <button type="submit" class="btn-upload">
-                        <span id="btn-text">📤 Upload Certificate</span>
-                        <span id="btn-loading" class="loading" style="display: none;">
-                            <div class="spinner"></div> Uploading...
-                        </span>
-                    </button>
-                </form>
-                
-                <div id="uploadMessage"></div>
-            </div>
-            
-            <!-- Recent Uploads Section -->
-            <div class="card-section">
-                <h2>📋 Recent Certificates (Last 50)</h2>
-                
-                <?php if (count($certificates) > 0): ?>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Student Name</th>
-                                <th>File Type</th>
-                                <th>Upload Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($certificates as $cert): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($cert['student_name']); ?></td>
-                                    <td>
-                                        <?php 
-                                        $ext = strtoupper(pathinfo($cert['certificate_file'], PATHINFO_EXTENSION));
-                                        if ($ext === 'PDF') {
-                                            echo '<span style="background: #f87a53; color: white; padding: 3px 8px; border-radius: 4px; font-weight: 600;">PDF</span>';
-                                        } else {
-                                            echo '<span style="background: #687eff; color: white; padding: 3px 8px; border-radius: 4px; font-weight: 600;">IMAGE</span>';
-                                        }
-                                        ?>
-                                    </td>
-                                    <td><?php echo date('M d, Y H:i', strtotime($cert['upload_date'])); ?></td>
-                                    <td>
-                                        <a href="certificates/<?php echo htmlspecialchars($cert['certificate_file']); ?>" target="_blank" class="view-btn">👁 View</a>
-                                        <form method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this certificate?');">
-                                            <input type="hidden" name="action" value="delete">
-                                            <input type="hidden" name="cert_id" value="<?php echo $cert['id']; ?>">
-                                            <button type="submit" class="delete-btn">🗑 Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                <?php else: ?>
-                    <div class="alert-box alert-info">
-                        ℹ️ No certificates uploaded yet. Start by uploading your first certificate above!
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        // Handle form submission
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const studentName = document.getElementById('student_name').value;
-            const certificateFile = document.getElementById('certificate_file').files[0];
-            
-            if (!studentName || !certificateFile) {
-                alert('Please fill all fields');
-                return;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Admin Dashboard</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#f5f7fa;
+            font-family:Arial, sans-serif;
+            color:#222;
+        }
+
+        .dashboard-container{
+            max-width:1200px;
+            margin:auto;
+            padding:30px 20px;
+        }
+
+        .top-bar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:30px;
+            flex-wrap:wrap;
+            gap:15px;
+        }
+
+        .top-bar h2{
+            font-size:28px;
+            color:#1e293b;
+        }
+
+        .top-bar p{
+            color:#6b778b;
+            margin-top:5px;
+            font-size:14px;
+        }
+
+        .logout-btn{
+            background:#ef4444;
+            color:white;
+            padding:10px 18px;
+            border-radius:8px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .card-box{
+            background:white;
+            border-radius:16px;
+            padding:25px;
+            margin-bottom:25px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-title{
+            margin-bottom:20px;
+            font-size:22px;
+            color:#1e293b;
+        }
+
+        .sub-text{
+            color:#6b778b;
+            margin-bottom:25px;
+            font-size:14px;
+        }
+
+        .form-control{
+            width:100%;
+            padding:14px;
+            border:1px solid #dbe1ea;
+            border-radius:10px;
+            margin-bottom:15px;
+            font-size:15px;
+        }
+
+        .form-control:focus{
+            outline:none;
+            border-color:#687eff;
+        }
+
+        .btn-primary{
+            background:#687eff;
+            color:white;
+            border:none;
+            padding:14px 20px;
+            border-radius:10px;
+            cursor:pointer;
+            font-weight:bold;
+            width:100%;
+        }
+
+        .btn-primary:hover{
+            opacity:.9;
+        }
+
+        .btn-primary:disabled{
+            background:#9ca3af;
+            cursor:not-allowed;
+        }
+
+        .message-box{
+            margin-top:15px;
+            padding:12px;
+            border-radius:10px;
+            font-size:14px;
+        }
+
+        .success{
+            background:#dcfce7;
+            color:#166534;
+        }
+
+        .error{
+            background:#fee2e2;
+            color:#991b1b;
+        }
+
+        .search-box{
+            margin-bottom:20px;
+        }
+
+        .search-form{
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+
+        .search-btn{
+            background:#111827;
+            color:white;
+            border:none;
+            padding:14px 20px;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        table th{
+            background:#f8fafc;
+            padding:14px;
+            text-align:left;
+            color:#475569;
+            font-size:14px;
+        }
+
+        table td{
+            padding:16px 14px;
+            border-top:1px solid #eef2f7;
+        }
+
+        .badge{
+            padding:6px 12px;
+            border-radius:30px;
+            font-size:12px;
+            font-weight:bold;
+        }
+
+        .badge-pdf{
+            background:#fee2e2;
+            color:#991b1b;
+        }
+
+        .badge-image{
+            background:#dbeafe;
+            color:#1d4ed8;
+        }
+
+        .action-buttons{
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+
+        .btn-view{
+            background:#687eff;
+            color:white;
+            padding:8px 14px;
+            border-radius:8px;
+            text-decoration:none;
+            font-size:14px;
+        }
+
+        .btn-delete{
+            background:#ef4444;
+            color:white;
+            border:none;
+            padding:8px 14px;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:14px;
+        }
+
+        .spinner{
+            width:18px;
+            height:18px;
+            border:3px solid rgba(255,255,255,0.3);
+            border-top:3px solid white;
+            border-radius:50%;
+            display:inline-block;
+            animation:spin 1s linear infinite;
+            margin-right:8px;
+            vertical-align:middle;
+        }
+        
+        .clear-btn{
+            background:#e2e8f0;
+            color:#334155;
+            padding:14px 20px;
+            border-radius:10px;
+            text-decoration:none;
+            font-weight:600;
+            transition:0.3s;
+        }
+        
+        .clear-btn:hover{
+            background:#cbd5e1;
+        }
+
+        @keyframes spin{
+            100%{
+                transform:rotate(360deg);
             }
-            
-            // Show loading state
-            document.getElementById('btn-text').style.display = 'none';
-            document.getElementById('btn-loading').style.display = 'inline-block';
-            
-            // Create FormData
-            const formData = new FormData();
-            formData.append('student_name', studentName);
-            formData.append('certificate_file', certificateFile);
-            
-            // Submit via AJAX
-            fetch('api-upload.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('btn-text').style.display = 'inline';
-                document.getElementById('btn-loading').style.display = 'none';
-                
-                const messageDiv = document.getElementById('uploadMessage');
-                if (data.success) {
-                    messageDiv.innerHTML = '<div class="alert-box alert-success">✓ ' + data.message + '</div>';
-                    document.getElementById('uploadForm').reset();
-                    setTimeout(() => {
-                        location.reload();
-                    }, 2000);
-                } else {
-                    messageDiv.innerHTML = '<div class="alert-box alert-danger">✗ ' + data.message + '</div>';
-                }
-            })
-            .catch(error => {
-                document.getElementById('btn-text').style.display = 'inline';
-                document.getElementById('btn-loading').style.display = 'none';
-                document.getElementById('uploadMessage').innerHTML = '<div class="alert-box alert-danger">✗ Error: ' + error + '</div>';
-            });
-        });
-        
-        // Drag and drop functionality
-        const dropArea = document.querySelector('.file-upload-area');
-        
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, preventDefaults, false);
-        });
-        
-        function preventDefaults(e) {
-            e.preventDefault();
-            e.stopPropagation();
         }
-        
-        ['dragenter', 'dragover'].forEach(eventName => {
-            dropArea.addEventListener(eventName, () => {
-                dropArea.style.borderColor = '#687eff';
-                dropArea.style.background = '#f0f5ff';
-            });
-        });
-        
-        ['dragleave', 'drop'].forEach(eventName => {
-            dropArea.addEventListener(eventName, () => {
-                dropArea.style.borderColor = '#d1e3fb';
-                dropArea.style.background = '#f9fbff';
-            });
-        });
-        
-        dropArea.addEventListener('drop', (e) => {
-            const dt = e.dataTransfer;
-            const files = dt.files;
-            document.getElementById('certificate_file').files = files;
-        });
-    </script>
+
+        @media(max-width:768px){
+
+            .top-bar{
+                flex-direction:column;
+                align-items:flex-start;
+            }
+
+            table{
+                display:block;
+                overflow-x:auto;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="top-bar">
+
+        <div>
+            <h2>Welcome, <?php echo htmlspecialchars($_SESSION['admin_username']); ?></h2>
+            <p>Manage student certificates seamlessly</p>
+        </div>
+
+        <a href="admin-logout.php" class="logout-btn">Logout</a>
+
+    </div>
+
+
+    <?php if (isset($_GET['deleted'])): ?>
+        <div class="message-box success">
+            Certificate deleted successfully
+        </div>
+    <?php endif; ?>
+
+
+    <!-- UPLOAD -->
+    <div class="card-box">
+
+        <h3 class="card-title">Upload Certificate</h3>
+
+        <p class="sub-text">
+            Upload student certificate securely into the system.
+        </p>
+
+        <form id="uploadForm" enctype="multipart/form-data">
+
+            <input
+                type="text"
+                name="student_name"
+                id="studentName"
+                class="form-control"
+                placeholder="Enter Student Name"
+            >
+
+            <input
+                type="file"
+                name="certificate_file"
+                id="certificateFile"
+                class="form-control"
+            >
+
+            <button type="submit" class="btn-primary" id="uploadBtn">
+                Upload Certificate
+            </button>
+
+        </form>
+
+        <div id="uploadMessage"></div>
+
+    </div>
+
+
+    <!-- CERTIFICATES -->
+    <div class="card-box">
+
+        <h3 class="card-title">Certificates</h3>
+
+        <p class="sub-text">
+            Search and manage uploaded certificates.
+        </p>
+
+        <!-- SEARCH -->
+       <div class="search-box">
+
+        <form method="GET" class="search-form">
+
+          <input
+            type="text"
+            name="search"
+            class="form-control"
+            placeholder="Search student name..."
+            value="<?php echo htmlspecialchars($search); ?>"
+          >
+
+          <button type="submit" class="search-btn">
+            Search
+          </button>
+
+          <?php if(!empty($search)): ?>
+
+            <a href="admin-dashboard.php" class="clear-btn">
+                Clear
+            </a>
+
+          <?php endif; ?>
+
+        </form>
+
+    </div>
+
+
+        <?php if(count($certificates) > 0): ?>
+
+            <table>
+
+                <tr>
+                    <th>Student Name</th>
+                    <th>File Type</th>
+                    <th>Upload Date</th>
+                    <th>Actions</th>
+                </tr>
+
+                <?php foreach($certificates as $cert): ?>
+
+                    <?php
+                        $ext = strtoupper(pathinfo($cert['certificate_file'], PATHINFO_EXTENSION));
+                        $type = ($ext === 'PDF') ? 'PDF' : 'IMAGE';
+                    ?>
+
+                    <tr>
+
+                        <td>
+                            <?php echo htmlspecialchars($cert['student_name']); ?>
+                        </td>
+
+                        <td>
+
+                            <?php if($type === 'PDF'): ?>
+
+                                <span class="badge badge-pdf">PDF</span>
+
+                            <?php else: ?>
+
+                                <span class="badge badge-image">IMAGE</span>
+
+                            <?php endif; ?>
+
+                        </td>
+
+                        <td>
+                            <?php echo date('F d, Y', strtotime($cert['upload_date'])); ?>
+                        </td>
+
+                        <td>
+
+                            <div class="action-buttons">
+
+                                <a
+                                    href="certificates/<?php echo htmlspecialchars($cert['certificate_file']); ?>"
+                                    target="_blank"
+                                    class="btn-view"
+                                >
+                                    View
+                                </a>
+
+                                <form method="POST">
+
+                                    <input type="hidden" name="action" value="delete">
+
+                                    <input
+                                        type="hidden"
+                                        name="cert_id"
+                                        value="<?php echo $cert['id']; ?>"
+                                    >
+
+                                    <button class="btn-delete">
+                                        Delete
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                <?php endforeach; ?>
+
+            </table>
+
+        <?php else: ?>
+
+            <p>No certificates found</p>
+
+        <?php endif; ?>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+const uploadForm = document.getElementById('uploadForm');
+const uploadBtn = document.getElementById('uploadBtn');
+const uploadMessage = document.getElementById('uploadMessage');
+
+uploadForm.addEventListener('submit', function(e){
+
+    e.preventDefault();
+
+    const studentName = document.getElementById('studentName').value.trim();
+    const fileInput = document.getElementById('certificateFile');
+
+    // VALIDATION
+    if(studentName.length < 6){
+
+        uploadMessage.innerHTML = `
+            <div class="message-box error">
+                Student name must be more than 6 characters
+            </div>
+        `;
+
+        return;
+    }
+
+    if(fileInput.files.length === 0){
+
+        uploadMessage.innerHTML = `
+            <div class="message-box error">
+                Please select a certificate file
+            </div>
+        `;
+
+        return;
+    }
+
+    // PREVENT DOUBLE CLICK
+    uploadBtn.disabled = true;
+
+    uploadBtn.innerHTML = `
+        <span class="spinner"></span>
+        Uploading...
+    `;
+
+    const formData = new FormData(uploadForm);
+
+    fetch('api-upload.php', {
+        method:'POST',
+        body:formData
+    })
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        if(data.success){
+
+            uploadMessage.innerHTML = `
+                <div class="message-box success">
+                    Certificate uploaded successfully
+                </div>
+            `;
+
+            setTimeout(() => {
+                location.reload();
+            }, 1500);
+
+        } else {
+
+            uploadMessage.innerHTML = `
+                <div class="message-box error">
+                    ${data.message}
+                </div>
+            `;
+
+            uploadBtn.disabled = false;
+
+            uploadBtn.innerHTML = 'Upload Certificate';
+        }
+    })
+
+    .catch(err => {
+
+        uploadMessage.innerHTML = `
+            <div class="message-box error">
+                Error uploading file
+            </div>
+        `;
+
+        uploadBtn.disabled = false;
+
+        uploadBtn.innerHTML = 'Upload Certificate';
+    });
+
+});
+
+</script>
+
 </body>
 </html>

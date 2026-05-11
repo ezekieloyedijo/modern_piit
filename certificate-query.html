@@ -440,7 +440,10 @@
           const response = await fetch(
             `api-search.php?q=${encodeURIComponent(query)}`,
           )
+          console.log('Search response status:', response.status)
+          console.log('Search response:', response)
           const data = await response.json()
+          console.log('Search response data:', data)
 
           if (data.success && data.results.length > 0) {
             displayResults(data.results)

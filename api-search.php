@@ -1,63 +1,96 @@
 <?php
-/**
- * Certificate Search API
- * Handles search queries from the public search page
- */
-
 header('Content-Type: application/json');
 
-require_once 'config.php';
-require_once 'db_connect.php';
+error_reporting(0);
+ini_set('display_errors', 0);
 
-// Get search query
-$search = isset($_GET['q']) ? trim($_GET['q']) : '';
+try {
+    require_once 'config.php';
+    require_once 'db_connect.php';
 
-if (empty($search) || strlen($search) < 2) {
-    echo json_encode(['success' => false, 'results' => [], 'message' => 'Please enter at least 2 characters']);
-    exit();
-}
+    if (!isset($conn) || $conn->connect_error) {
+        throw new Exception("Database connection failed");
+    }
 
-// Prevent SQL injection
-$search_term = '%' . $conn->real_escape_string($search) . '%';
+    // =======================
+    // GET SEARCH INPUT
+    // =======================
+    $search = isset($_GET['q']) ? trim($_GET['q']) : '';
 
-// Search for certificates
-$sql = "SELECT id, student_name, certificate_file, file_type, upload_date 
-        FROM certificates 
-        WHERE student_name LIKE '$search_term' 
-        ORDER BY student_name ASC, upload_date DESC";
+    if (strlen($search) < 2) {
+        echo json_encode([
+            'success' => false,
+            'results' => [],
+            'message' => 'Please enter at least 2 characters'
+        ]);
+        exit;
+    }
 
-$result = $conn->query($sql);
-$certificates = [];
+    $search_term = "%" . $search . "%";
 
-if ($result && $result->num_rows > 0) {
+    // =======================
+    // SAFE QUERY
+    // =======================
+    $stmt = $conn->prepare("
+        SELECT id, student_name, certificate_file, upload_date
+        FROM certificates
+        WHERE student_name LIKE ?
+        ORDER BY upload_date DESC
+    ");
+
+    if (!$stmt) {
+        throw new Exception("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param("s", $search_term);
+
+    if (!$stmt->execute()) {
+        throw new Exception("Query execution failed");
+    }
+
+    $result = $stmt->get_result();
+
+    if (!$result) {
+        throw new Exception("get_result() not supported on this server. Enable mysqlnd.");
+    }
+
+    $certificates = [];
+
     while ($row = $result->fetch_assoc()) {
-        // Check if file exists
-        $file_path = 'certificates/' . $row['certificate_file'];
+
+        $file = $row['certificate_file'];
+        $file_path = "certificates/" . $file;
+
         if (file_exists($file_path)) {
+
+            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+
             $certificates[] = [
                 'id' => $row['id'],
-                'student_name' => htmlspecialchars($row['student_name']),
-                'file_type' => strtoupper($row['file_type']),
+                'student_name' => $row['student_name'],
+                'file_type' => ($ext === 'pdf') ? 'PDF' : 'IMAGE',
                 'file_path' => $file_path,
                 'upload_date' => date('F d, Y', strtotime($row['upload_date']))
             ];
         }
     }
-}
 
-if (count($certificates) > 0) {
     echo json_encode([
-        'success' => true,
+        'success' => count($certificates) > 0,
+        'count' => count($certificates),
         'results' => $certificates,
-        'count' => count($certificates)
+        'message' => count($certificates) ? "Found results" : "No certificates found"
     ]);
-} else {
+
+} catch (Exception $e) {
+
     echo json_encode([
         'success' => false,
         'results' => [],
-        'message' => 'No certificates found for "' . htmlspecialchars($search) . '"'
+        'message' => 'Server error occurred',
+        'debug' => $e->getMessage() // remove in production later
     ]);
 }
 
-$conn->close();
+exit;
 ?>

@@ -1,3 +1,31 @@
+<?php
+require_once 'config.php';
+
+// =======================
+// HANDLE LOGIN (BEFORE HTML)
+// =======================
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    if ($username === ADMIN_USERNAME && $password === ADMIN_PASSWORD) {
+
+        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_username'] = $username;
+        $_SESSION['login_time'] = time();
+
+        header("Location: admin-dashboard.php");
+        exit();
+
+    } else {
+        $error = "Invalid username or password";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,7 +171,7 @@
             <p>Access the certificate management system</p>
             
             <?php
-            session_start();
+           
             
             if ($_POST && isset($_POST['username']) && isset($_POST['password'])) {
                 require_once 'config.php';
