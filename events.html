@@ -167,10 +167,7 @@
               <div class="main-menu__wrapper-inner">
                 <div class="main-menu__left">
                   <div class="main-menu__logo">
-                    <a
-                      href="index.html
-                                "
-                    >
+                    <a href="index.html">
                       <img
                         src="./Images/pimg/PIITBrochure.png"
                         width="50"
@@ -184,11 +181,15 @@
                     <i class="fa fa-bars"></i>
                   </a>
                   <ul class="main-menu__list">
-                    <li>
+                    <li class="megamenu">
                       <a href="index.html">Home </a>
                     </li>
-                    <li>
-                      <a href="about.html">About</a>
+                    <li class="dropdown about-dropdown">
+                      <a href="#">About</a>
+                      <ul class="shadow-box">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="our-team.html">Our Team</a></li>
+                      </ul>
                     </li>
                     <li class="dropdown">
                       <a href="#">Programmes</a>
@@ -210,14 +211,46 @@
                         </li>
                       </ul>
                     </li>
+                    <li class="dropdown">
+                      <a href="#">Campuses</a>
+                      <ul class="shadow-box">
+                        <li>
+                          <a
+                            href="https://piit.com.ng/hfp-center/index.html"
+                            target="_blank"
+                            >HFP</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://piit.com.ng/lakowe-center/index.html"
+                            target="_blank"
+                            >Lakowe</a
+                          >
+                        </li>
+                        <!--<li>-->
+                        <!--  <a href="https://aptechajah.com" target="_blank"-->
+                        <!--    >Ajah</a-->
+                        <!--  >-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--  <a href="https://www.aptechlekki.com/" target="_blank"-->
+                        <!--    >Lekki</a-->
+                        <!--  >-->
+                        <!--</li>-->
+                      </ul>
+                    </li>
                     <li>
                       <a href="./course-carousel.html">Courses</a>
                     </li>
-                    <li class="megamenu current">
-                      <a href="#">Events</a>
+                    <li>
+                      <a class="current" href="./events.html">Events</a>
                     </li>
                     <li>
                       <a href="./faq.html">FAQs</a>
+                    </li>
+                    <li class="">
+                      <a href="./certificate-query.html">Certificates</a>
                     </li>
                     <li>
                       <a href="./contact.html">Contact</a>
@@ -252,10 +285,13 @@
         </nav>
       </header>
 
+      <!-- /.stricky-header -->
+
       <div class="stricky-header stricked-menu main-menu">
-        <div class="sticky-header__content"></div>
         <!-- /.sticky-header__content -->
+        <div class="sticky-header__content"></div>
       </div>
+
       <!-- /.stricky-header -->
 
       <!--Page Header Start-->

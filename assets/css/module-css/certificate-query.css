@@ -259,6 +259,151 @@
   animation: spin 1s linear infinite;
 }
 
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading span {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #687eff;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  color: #052143;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.service-card,
+.faq-card,
+.trust-card,
+.support-access-card {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid rgba(104, 126, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(104, 126, 255, 0.08);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.service-card:hover,
+.faq-card:hover,
+.trust-card:hover,
+.support-access-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 60px rgba(104, 126, 255, 0.12);
+}
+
+.service-card__icon {
+  font-size: 28px;
+  width: 62px;
+  height: 62px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: rgba(104, 126, 255, 0.1);
+  color: #3d4fcd;
+  margin-bottom: 20px;
+}
+
+.service-card h3,
+.faq-card h3,
+.trust-card h3 {
+  color: #052143;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.service-card p,
+.faq-card p,
+.trust-card p {
+  color: #6b778b;
+  font-size: 15px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+.faq-card {
+  min-height: 190px;
+}
+
+.verification-section {
+  padding: 80px 0;
+}
+
+.verification-contact {
+  margin-top: 30px;
+  text-align: center;
+  color: #6b778b;
+  font-size: 16px;
+}
+
+.support-access-section {
+  padding: 60px 0 80px;
+}
+
+.support-access-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+}
+
+.support-access-card p {
+  margin-top: 12px;
+}
+
+.support-access-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #687eff;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #26d366 0%, #128c7e 100%);
+  color: white;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(18, 140, 126, 0.25);
+}
+
+@media (max-width: 991px) {
+  .support-access-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
