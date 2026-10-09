@@ -1,0 +1,12 @@
+# Private: database and admin credentials
+config.php
+
+# Private: uploaded student certificates
+certificates/
+
+# Server / editor clutter
+.well-known/
+*.tmp
+.DS_Store
+Thumbs.db
+.vscode/

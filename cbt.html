@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Certificate Verification | PIIT Lagos</title>
+    <title>JAMB CBT Centre | PIIT Lagos</title>
     <!-- favicons Icons -->
     <link
       rel="apple-touch-icon"
@@ -26,20 +26,25 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       rel="stylesheet"
     />
-
     <!-- DESCRIPTION -->
     <meta
       name="description"
-      content="PIIT, Prime Innovation Institute of Technology, Lagos: NBTE accredited Diploma in Software Engineering and JAMB CBT Centre"
+      content="PIIT JAMB CBT Centre at Amazing Grace Mall, Lakowe, Lekki Epe Road, Lagos. Accreditation inspection pending: get notified when registration opens."
     />
 
+    <link rel="canonical" href="https://www.piit.com.ng/cbt" />
+
     <!-- OG -->
-    <meta property="og:title" content="Certificate Verification | PIIT Lagos" />
+    <meta
+      property="og:title"
+      content="JAMB CBT Centre | PIIT Lagos"
+    />
     <meta
       property="og:description"
-      content="PIIT, Prime Innovation Institute of Technology, Lagos: NBTE accredited Diploma in Software Engineering and JAMB CBT Centre"
+      content="PIIT JAMB CBT Centre at Amazing Grace Mall, Lakowe, Lekki Epe Road, Lagos. Accreditation inspection pending: get notified when registration opens."
     />
     <meta property="og:image" content="" />
+    <meta name="format-detection" content="telephone=yes" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
@@ -77,14 +82,19 @@
     <link rel="stylesheet" href="assets/css/module-css/about.css" />
     <link rel="stylesheet" href="assets/css/module-css/courses.css" />
     <link rel="stylesheet" href="assets/css/module-css/why-choose.css" />
+    <link rel="stylesheet" href="assets/css/module-css/live-class.css" />
     <link rel="stylesheet" href="assets/css/module-css/video-one.css" />
+    <link rel="stylesheet" href="assets/css/module-css/blog.css" />
     <link rel="stylesheet" href="assets/css/module-css/counter.css" />
     <link rel="stylesheet" href="assets/css/module-css/team.css" />
     <link rel="stylesheet" href="assets/css/module-css/newsletter.css" />
     <link rel="stylesheet" href="assets/css/module-css/testimonial.css" />
     <link rel="stylesheet" href="assets/css/module-css/contact.css" />
+    <link rel="stylesheet" href="assets/css/module-css/process.css" />
     <link rel="stylesheet" href="assets/css/module-css/page-header.css" />
-    <link rel="stylesheet" href="assets/css/module-css/certificate-query.css" />
+    <link rel="stylesheet" href="assets/css/module-css/become-a-teacher.css" />
+    <link rel="stylesheet" href="assets/css/module-css/shop.css" />
+    
 
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -94,6 +104,14 @@
   <body class="custom-cursor">
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
+
+    <!--Start Preloader-->
+    <!-- <div class="loader js-preloader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div> -->
+    <!--End Preloader-->
 
     <div class="page-wrapper">
       <header class="main-header main-header-three">
@@ -140,7 +158,7 @@
                     <li>
                       <a href="hfp-center/index.html">HFP Centre</a>
                     </li>
-                    <li class="">
+                    <li class="current">
                       <a href="cbt.html">JAMB CBT Centre</a>
                     </li>
                     <li class="">
@@ -149,7 +167,7 @@
                     <li class="">
                       <a href="faq.html">FAQs</a>
                     </li>
-                    <li class="current">
+                    <li class="">
                       <a href="certificate-query.html">Certificates</a>
                     </li>
                     <li class="">
@@ -192,6 +210,8 @@
         <div class="sticky-header__content"></div>
       </div>
 
+      <!-- /.stricky-header -->
+
       <!--Page Header Start-->
       <section class="page-header">
         <div
@@ -206,311 +226,179 @@
         <div class="page-header__shape-5">
           <img src="assets/images/shapes/page-header-shape-5.png" alt="" />
         </div>
+        <div class="page-header__social">
+          <a href="https://web.facebook.com/PrimeInnovationInstituteOfTechnology" target="_blank">Facebook</a>
+          <span>//</span>
+          <a href="https://www.instagram.com/prime_innovation/?hl=en" target="_blank">Instagram</a>
+        </div>
         <div class="container">
           <div class="page-header__inner">
-            <div class="page-header__content">
-              <h1>Student Certificates</h1>
-              <p>Search and verify your certificate</p>
+            <div class="page-header__img">
+              <!-- <img src="assets/images/resources/page-header-img-1.png" alt="" /> -->
+              <div class="page-header__shape-1">
+                <img
+                  src="assets/images/shapes/page-header-shape-1.png"
+                  alt=""
+                />
+              </div>
+              <div class="page-header__shape-2">
+                <img
+                  src="assets/images/shapes/page-header-shape-2.png"
+                  alt=""
+                />
+              </div>
+              <div class="page-header__shape-3">
+                <img
+                  src="assets/images/shapes/page-header-shape-3.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <h2>JAMB CBT Centre</h2>
+            <div class="thm-breadcrumb__box">
+              <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="index.html">Home</a></li>
+                <li><span>//</span></li>
+                <li>JAMB CBT Centre</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
       <!--Page Header End-->
 
-      <!-- Certificate Search Section -->
-      <section class="certificate-query-section">
+      <!--CBT Centre Start-->
+      <section class="cbt-page" style="padding: 100px 0 80px">
         <div class="container">
-          <!-- Section Header -->
-          <div class="certificate-query-header">
-            <h2 class="certificate-query-header__title">
-              Find Your Certificate
-            </h2>
-            <p class="certificate-query-header__subtitle">
-              Search by student name to view and download your certificate. Our
-              system maintains accurate records of all certified students.
-            </p>
-          </div>
-
-          <!-- Search Box -->
-          <div class="certificate-search-box">
-            <form class="search-form" id="searchForm">
-              <input
-                type="text"
-                class="search-form__input"
-                id="searchInput"
-                placeholder="Search student name..."
-                autocomplete="off"
-              />
-              <button type="submit" class="search-form__submit">
-                <i class="fas fa-search"></i> Search
-              </button>
-            </form>
-            <p class="search-hint">
-              💡 Type the student's full or partial name to search
-            </p>
-          </div>
-
-          <!-- Results Container -->
-          <div
-            class="results-container"
-            id="resultsContainer"
-            style="display: none"
-          >
-            <div class="results-info" id="resultsInfo"></div>
-            <div id="resultsList"></div>
-          </div>
-
-          <!-- Empty State -->
-          <div class="empty-state" id="emptyState">
-            <div class="empty-state__icon">📋</div>
-            <h3 class="empty-state__title">Ready to Search</h3>
-            <p class="empty-state__text">
-              Enter a student name above to find and view their certificate
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Student Services -->
-      <section class="student-services-section">
-        <div class="container">
-          <div class="section-heading">
-            <span>Student Services</span>
-            <h2>Support services for certificate holders and alumni</h2>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-              <div class="service-card">
-                <div class="service-card__icon">🧾</div>
-                <h3>Transcript Request</h3>
-                <p>
-                  Request official transcripts for further study, employer
-                  review, or transfer purposes with fast processing.
-                </p>
+          <div class="row">
+            <div class="col-xl-7 col-lg-7">
+              <div
+                class="section-title text-left sec-title-animation animation-style2"
+              >
+                <div class="section-title__tagline-box">
+                  <div class="section-title__tagline-shape"></div>
+                  <span class="section-title__tagline">JAMB CBT Centre</span>
+                </div>
+                <h2 class="section-title__title title-animation">
+                  PIIT JAMB CBT Centre, Lakowe
+                </h2>
               </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="service-card">
-                <div class="service-card__icon">✍️</div>
-                <h3>Certificate Correction</h3>
-                <p>
-                  Fix name spelling issues or certificate details quickly and
-                  securely through our dedicated correction process.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="service-card">
-                <div class="service-card__icon">📝</div>
-                <h3>Recommendation Letter Request</h3>
-                <p>
-                  Submit requests for official recommendation letters tailored
-                  for jobs, internships, or academic applications.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="service-card">
-                <div class="service-card__icon">🎓</div>
-                <h3>Alumni Registration</h3>
-                <p>
-                  Join our alumni network to stay connected with PIIT, access
-                  events, and receive career support.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="service-card">
-                <div class="service-card__icon">✅</div>
-                <h3>Clearance Support</h3>
-                <p>
-                  Get support for graduation clearance, NYSC documentation, and
-                  official academic clearance requirements.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="service-card">
-                <div class="service-card__icon">🎫</div>
-                <h3>Complaint / Support Ticket</h3>
-                <p>
-                  Raise a ticket for certificate issues, verification problems,
-                  or administrative support and track its progress.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="service-card">
-                <div class="service-card__icon">💼</div>
-                <h3>Internship & Placement Support</h3>
-                <p>
-                  Receive guidance and placement assistance for internships,
-                  graduate roles, and employer introductions.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ Section -->
-      <section class="faq-section">
-        <div class="container">
-          <div class="section-heading">
-            <span>FAQ</span>
-            <h2>Common certificate verification questions answered</h2>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-6">
-              <div class="faq-card">
-                <h3>Result not showing</h3>
-                <p>
-                  If your certificate does not appear, please check the spelling
-                  and try again. Use the full student name or contact us for
-                  manual lookup if the issue persists.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="faq-card">
-                <h3>Wrong name on certificate</h3>
-                <p>
-                  If a name is incorrect, submit a certificate correction
-                  request. We verify your details and issue a corrected
-                  certificate promptly.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="faq-card">
-                <h3>Download not working</h3>
-                <p>
-                  If downloading fails, refresh the page or try a different
-                  browser. Contact support with the search result details so we
-                  can resend the download link.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="faq-card">
-                <h3>Verification failed</h3>
-                <p>
-                  Verification may fail if details do not match our records.
-                  Confirm the exact name and contact student affairs for
-                  verification assistance.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="faq-card">
-                <h3>How employers can verify certificates</h3>
-                <p>
-                  Employers can use the certificate search service, check the QR
-                  code on printed certificates, or contact our registrar to
-                  confirm authenticity.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="faq-card">
-                <h3>Processing time for requests</h3>
-                <p>
-                  Most certificate requests are processed within 1-3 business
-                  days. Correction and support ticket requests may take slightly
-                  longer depending on verification.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Verification Trust / Employer Info -->
-      <section class="verification-section">
-        <div class="container">
-          <div class="section-heading">
-            <span>Verification Trust</span>
-            <h2>Trusted certificate verification for employers and partners</h2>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-              <div class="trust-card">
-                <h3>How employers verify certificates</h3>
-                <p>
-                  Employers can verify certificates by searching our records,
-                  reviewing certificate details, and validating the issued
-                  credential with our registrar team.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="trust-card">
-                <h3>QR verification explanation</h3>
-                <p>
-                  Each official certificate includes a QR code that links back
-                  to our verification system, ensuring instant validation and
-                  anti-counterfeit protection.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="trust-card">
-                <h3>Official disclaimer</h3>
-                <p>
-                  All certificates issued by PIIT are authentic, traceable, and
-                  backed by our academic registry for full employer confidence.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="verification-contact">
-            <p>
-              For registrar or student affairs verification, contact our office
-              directly or use the support option below.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Support / Contact Access -->
-      <section class="support-access-section">
-        <div class="container">
-          <div class="support-access-card">
-            <div>
-              <span class="support-access-label">Need help now?</span>
-              <h3>Quick contact to student affairs</h3>
-              <p>
-                Contact our student affairs team directly for verification,
-                certificates, clearance, or support ticket assistance.
+              <p style="margin-bottom: 30px">
+                Prime Innovation Institute of Technology is preparing to open a
+                JAMB Computer Based Test centre at Lakowe, on the Lekki Epe
+                Expressway. Our accreditation inspection with JAMB is in
+                progress.
               </p>
+
+              <h3 style="font-size: 24px; margin-bottom: 15px">
+                What candidates can expect
+              </h3>
+              <ul class="list-unstyled cbt-page__list" style="margin-bottom: 30px">
+                <li style="margin-bottom: 10px">
+                  <i class="fas fa-check" style="margin-right: 10px"></i>A
+                  modern, air conditioned test hall with 275 seats
+                </li>
+                <li style="margin-bottom: 10px">
+                  <i class="fas fa-check" style="margin-right: 10px"></i>Solar
+                  power backup and a reliable network
+                </li>
+                <li style="margin-bottom: 10px">
+                  <i class="fas fa-check" style="margin-right: 10px"></i>Admin
+                  and exam day support from trained staff
+                </li>
+                <li style="margin-bottom: 10px">
+                  <i class="fas fa-check" style="margin-right: 10px"></i>Easy
+                  access from Lekki, Ajah, Sangotedo, Awoyaya and Ibeju Lekki
+                </li>
+              </ul>
+
+              <div
+                class="cbt-page__status"
+                role="status"
+                style="border-left: 5px solid var(--fistudy-base, #f87a53); background: rgba(248, 122, 83, 0.1); padding: 20px 25px; border-radius: 8px; margin-bottom: 30px"
+              >
+                <strong>Accreditation inspection pending.</strong> Follow this
+                page or contact us to be notified when the centre opens for
+                registration.
+              </div>
+
+              <a href="https://wa.me/2347070069959?text=Hello%2C%20please%20notify%20me%20when%20the%20PIIT%20JAMB%20CBT%20centre%20opens%20for%20registration" target="_blank" class="thm-btn"
+                ><span class="icon-angles-right"></span>Notify me when
+                registration opens</a
+              >
             </div>
-            <a
-              href="https://wa.me/2347070069959?text=Hello%20there!%20%F0%9F%91%8B%20Welcome%20to%20Prime%20Innovation%20Institute%20of%20Technology!%20We're%20thrilled%20you've%20reached%20out%20to%20us.%20What%20is%20your%20name%3F%20How%20can%20we%20assist%20you%20today%3F"
-              class="whatsapp-btn"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
+            <div class="col-xl-5 col-lg-5">
+              <div
+                class="cbt-page__details"
+                style="background: var(--fistudy-extra, #f5f8fd); padding: 30px; border-radius: 12px; margin-top: 30px"
+              >
+                <h3 style="font-size: 22px; margin-bottom: 15px">Address</h3>
+                <p style="margin-bottom: 25px">
+                  Amazing Grace Mall, Lakowe, Lekki Epe Road, Lagos
+                </p>
+                <h3 style="font-size: 22px; margin-bottom: 15px">Contact</h3>
+                <p style="margin-bottom: 8px">
+                  <i class="fas fa-phone" style="margin-right: 8px"></i>
+                  <a href="tel:+2348105879530">08105879530</a>
+                </p>
+                <p style="margin-bottom: 8px">
+                  <i class="fab fa-whatsapp" style="margin-right: 8px"></i>
+                  <a href="https://wa.me/2347070069959?text=Hello%20there!%20%F0%9F%91%8B%20Welcome%20to%20Prime%20Innovation%20Institute%20of%20Technology!%20We're%20thrilled%20you've%20reached%20out%20to%20us.%20What%20is%20your%20name%3F%20How%20can%20we%20assist%20you%20today%3F" target="_blank">07070069959</a>
+                </p>
+                <p>
+                  <i class="fas fa-envelope" style="margin-right: 8px"></i>
+                  <a href="mailto:enquiries@piit.com.ng">enquiries@piit.com.ng</a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      <!--CBT Centre End-->
 
-      <!-- Certificate View Modal -->
-      <div class="modal" id="certificateModal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 id="modalTitle">Certificate</h2>
-            <button class="modal-close" onclick="closeCertificateModal()">
-              &times;
-            </button>
-          </div>
-          <div class="modal-body" id="modalBody">
-            <!-- Content will be inserted here -->
-          </div>
+      <!-- CBT Centre map -->
+      <div style="margin-bottom: 60px" class="google-map">
+        <div class="container">
+          <h3 style="margin-bottom: 20px">Find the CBT Centre: Amazing Grace Mall, Lakowe</h3>
+          <iframe
+            src="https://maps.google.com/maps?q=Amazing%20Grace%20Mall%2C%20Lakowe%2C%20Lekki-Epe%20Expressway%2C%20Lagos&z=16&output=embed"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map: Amazing Grace Mall, Lakowe"
+          ></iframe>
         </div>
       </div>
 
+      <h2
+        style="text-align: center; margin-bottom: 30px"
+        class="section-title-two__title title-animation"
+      >
+        OUR PARTNER
+      </h2>
+      <!-- Partner Strip Start-->
+      <section class="sliding-text-one partner-strip">
+        <div class="container">
+          <div
+            style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 10px 0; text-align: center"
+          >
+            <img
+              height="60"
+              src="our-images/bellarks_logo.png"
+              alt="Bellarks Polytechnic logo"
+            />
+            <h2 class="sliding-text__title" style="margin: 0">
+              Bellarks Polytechnic, Kwale, Delta State
+            </h2>
+          </div>
+        </div>
+      </section>
+      <!-- Partner Strip End -->
+
+      <!--Contact Info One Start -->
       <!--Contact Info One Start -->
       <section class="contact-info-one">
         <div class="container">
@@ -739,175 +627,120 @@
       </footer>
       <!--Site Footer Two End-->
     </div>
+    <!-- /.page-wrapper -->
 
-    <!-- Scripts -->
+    <div class="mobile-nav__wrapper">
+      <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+      <!-- /.mobile-nav__overlay -->
+      <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"
+          ><i class="fa fa-times"></i
+        ></span>
+
+        <div class="logo-box">
+          <a href="index.html" aria-label="logo image"
+            ><img src="./Images/pimg/PIITBrochure.png" width="50" alt=""
+          /></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+          <li>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:enquiries@piit.com.ng">enquiries@piit.com.ng</a>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <a href="tel:+2348105879530">08105879530</a>
+          </li>
+          <li>
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/2347070069959?text=Hello%20there!%20%F0%9F%91%8B%20Welcome%20to%20Prime%20Innovation%20Institute%20of%20Technology!%20We're%20thrilled%20you've%20reached%20out%20to%20us.%20What%20is%20your%20name%3F%20How%20can%20we%20assist%20you%20today%3F" target="_blank">07070069959</a>
+          </li>
+        </ul>
+        <!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__social">
+            <a href="https://web.facebook.com/PrimeInnovationInstituteOfTechnology" class="fab fa-facebook-square" target="_blank"></a>
+            <a href="https://www.instagram.com/prime_innovation/?hl=en" class="fab fa-instagram" target="_blank"></a>
+          </div>
+          <!-- /.mobile-nav__social -->
+        </div>
+        <!-- /.mobile-nav__top -->
+      </div>
+      <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    <!-- Search Popup -->
+    <div class="search-popup">
+      <div class="color-layer"></div>
+      <button class="close-search">
+        <span class="far fa-times fa-fw"></span>
+      </button>
+      <form
+        method="post"
+        action="https://weblayout.unicktheme.com/fistudy/main-html/blog.html"
+      >
+        <div class="form-group">
+          <input
+            type="search"
+            name="search-field"
+            value=""
+            placeholder="Search Here"
+            required=""
+          />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+      </form>
+    </div>
+    <!-- End Search Popup -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+      <span class="scroll-to-top__wrapper"
+        ><span class="scroll-to-top__inner"></span
+      ></span>
+      <span class="scroll-to-top__text"> Go Back Top</span>
+    </a>
+
+    <!-- Whatsapp logo -->
+    <a
+      href="https://wa.me/2347070069959?text=Hello%20there!%20%F0%9F%91%8B%20Welcome%20to%20Prime%20Innovation%20Institute%20of%20Technology!%20We're%20thrilled%20you've%20reached%20out%20to%20us.%20What%20is%20your%20name%3F%20How%20can%20we%20assist%20you%20today%3F"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Chat on WhatsApp"
+    >
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg"
+        alt="WhatsApp"
+      />
+    </a>
+
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jarallax.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/wNumb.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/marquee.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+
+    <script src="assets/js/gsap/gsap.js"></script>
+    <script src="assets/js/gsap/ScrollTrigger.js"></script>
+    <script src="assets/js/gsap/SplitText.js"></script>
+
+    <!-- template js -->
     <script src="assets/js/script.js"></script>
-
-    <script>
-      // Certificate Search Functionality
-      const searchForm = document.getElementById('searchForm')
-      const searchInput = document.getElementById('searchInput')
-      const resultsContainer = document.getElementById('resultsContainer')
-      const resultsList = document.getElementById('resultsList')
-      const resultsInfo = document.getElementById('resultsInfo')
-      const emptyState = document.getElementById('emptyState')
-      const certificateModal = document.getElementById('certificateModal')
-
-      // Handle form submission
-      searchForm.addEventListener('submit', function (e) {
-        e.preventDefault()
-        performSearch()
-      })
-
-      // Handle real-time search (with debounce)
-      let searchTimeout
-      searchInput.addEventListener('input', function () {
-        clearTimeout(searchTimeout)
-        searchTimeout = setTimeout(() => {
-          if (this.value.trim().length >= 2) {
-            performSearch()
-          }
-        }, 300)
-      })
-
-      async function performSearch() {
-        const query = searchInput.value.trim()
-
-        if (query.length < 2) {
-          alert('Please enter at least 2 characters')
-          return
-        }
-
-        // Show loading state
-        showLoading()
-
-        try {
-          const response = await fetch(
-            `api-search.php?q=${encodeURIComponent(query)}`,
-          )
-          console.log('Search response status:', response.status)
-          console.log('Search response:', response)
-          const data = await response.json()
-          console.log('Search response data:', data)
-
-          if (data.success && data.results.length > 0) {
-            displayResults(data.results)
-          } else {
-            displayNoResults(query)
-          }
-        } catch (error) {
-          console.error('Search error:', error)
-          resultsList.innerHTML =
-            '<div class="alert" style="background: #fee; color: #c33; padding: 15px; border-radius: 8px; border: 1px solid #fcc;">❌ Error performing search. Please try again.</div>'
-          resultsContainer.style.display = 'block'
-          emptyState.style.display = 'none'
-        }
-      }
-
-      function showLoading() {
-        resultsList.innerHTML = `
-                <div class="loading-state">
-                    <div class="loading-spinner"></div>
-                    <p>Searching certificates...</p>
-                </div>
-            `
-        resultsContainer.style.display = 'block'
-        emptyState.style.display = 'none'
-      }
-
-      function displayResults(results) {
-        resultsInfo.innerHTML = `Found <strong>${results.length}</strong> certificate${results.length !== 1 ? 's' : ''} for "<strong>${searchInput.value.trim()}</strong>"`
-
-        let html = ''
-        results.forEach((cert) => {
-          const fileIcon = cert.file_type === 'PDF' ? '📄' : '🖼️'
-          const viewBtn =
-            cert.file_type === 'PDF'
-              ? `<a href="javascript:void(0)" class="btn-view" onclick="viewCertificate('${cert.file_path}', '${cert.file_type}', '${cert.student_name}')"><i class="fas fa-eye"></i> View PDF</a>`
-              : `<a href="javascript:void(0)" class="btn-view" onclick="viewCertificate('${cert.file_path}', '${cert.file_type}', '${cert.student_name}')"><i class="fas fa-eye"></i> View Image</a>`
-
-          html += `
-                    <div class="certificate-result">
-                        <div class="certificate-result__header">
-                            <div class="certificate-result__icon">${fileIcon}</div>
-                            <p class="certificate-result__name">${cert.student_name}</p>
-                        </div>
-                        <div class="certificate-result__details">
-                            <div class="detail-item">
-                                <div class="detail-item__label">File Type</div>
-                                <div class="detail-item__value">${cert.file_type}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-item__label">Upload Date</div>
-                                <div class="detail-item__value">${cert.upload_date}</div>
-                            </div>
-                        </div>
-                        <div class="certificate-result__actions">
-                            ${viewBtn}
-                            <a href="${cert.file_path}" download class="btn-download"><i class="fas fa-download"></i> Download</a>
-                        </div>
-                    </div>
-                `
-        })
-
-        resultsList.innerHTML = html
-        resultsContainer.style.display = 'block'
-        emptyState.style.display = 'none'
-      }
-
-      function displayNoResults(query) {
-        resultsList.innerHTML = `
-                <div class="no-results">
-                    <div class="no-results__icon">🔍</div>
-                    <h3 class="no-results__title">No Certificates Found</h3>
-                    <p class="no-results__text">We couldn't find any certificates for "<strong>${query}</strong>"</p>
-                    <p style="color: #6b778b; font-size: 14px;">Try searching with a different name or spelling</p>
-                </div>
-            `
-        resultsContainer.style.display = 'block'
-        emptyState.style.display = 'none'
-      }
-
-      function viewCertificate(filePath, fileType, studentName) {
-        const modalTitle = document.getElementById('modalTitle')
-        const modalBody = document.getElementById('modalBody')
-
-        modalTitle.textContent = `${studentName}'s Certificate`
-
-        if (fileType === 'PDF') {
-          modalBody.innerHTML = `
-                    <iframe src="${filePath}" style="width: 100%; height: 600px; border: none; border-radius: 8px;"></iframe>
-                `
-        } else {
-          modalBody.innerHTML = `
-                    <img src="${filePath}" alt="${studentName}'s Certificate" style="max-width: 100%; height: auto; border-radius: 8px;">
-                `
-        }
-
-        certificateModal.classList.add('active')
-        document.body.style.overflow = 'hidden'
-      }
-
-      function closeCertificateModal() {
-        certificateModal.classList.remove('active')
-        document.body.style.overflow = 'auto'
-      }
-
-      // Close modal when clicking outside
-      certificateModal.addEventListener('click', function (e) {
-        if (e.target === this) {
-          closeCertificateModal()
-        }
-      })
-
-      // Close modal on escape key
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-          closeCertificateModal()
-        }
-      })
-    </script>
   </body>
 </html>

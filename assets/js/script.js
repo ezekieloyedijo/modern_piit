@@ -1509,4 +1509,9 @@
       }
     })
   })()
+
+  // keep the footer copyright year current
+  document.querySelectorAll('.js-current-year').forEach(function (el) {
+    el.textContent = new Date().getFullYear()
+  })
 })(jQuery)

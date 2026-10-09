@@ -1,0 +1,371 @@
+/*--------------------------------------------------------------
+# Interns / Employer Partnership Landing Page
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Hero
+--------------------------------------------------------------*/
+.interns-hero {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: linear-gradient(
+    92.7deg,
+    #f1f3ff 0.48%,
+    #f4fef3 56.21%,
+    #fff3fc 100%
+  );
+  padding: 60px 0 90px;
+  z-index: 1;
+}
+
+.interns-hero__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.interns-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  background-color: var(--fistudy-base);
+  color: var(--fistudy-white);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 22px;
+}
+
+.interns-hero__title {
+  font-size: 46px;
+  line-height: 1.2em;
+  font-weight: 700;
+  color: var(--fistudy-black);
+  margin-bottom: 22px;
+}
+
+.interns-hero__text {
+  font-size: 18px;
+  line-height: 1.75em;
+  color: var(--fistudy-gray);
+  margin-bottom: 16px;
+}
+
+.interns-hero__text:last-of-type {
+  margin-bottom: 30px;
+}
+
+.interns-hero__text strong {
+  color: var(--fistudy-black);
+}
+
+.interns-hero__cta {
+  margin-bottom: 34px;
+}
+
+.interns-hero__zeros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.interns-hero__zero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background-color: rgba(var(--fistudy-white-rgb), 0.9);
+  border: 1px solid var(--fistudy-bdr-color);
+  color: var(--fistudy-black);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.interns-hero__zero i {
+  color: #2bb673;
+}
+
+/*--------------------------------------------------------------
+# You Set / You Choose / You Decide
+--------------------------------------------------------------*/
+.interns-control {
+  padding: 90px 0;
+}
+
+.interns-control__card {
+  height: 100%;
+  text-align: center;
+  padding: 36px 28px;
+  border-radius: 20px;
+  border: 1px solid var(--fistudy-bdr-color);
+  background-color: var(--fistudy-white);
+  box-shadow: 0 20px 50px rgba(var(--fistudy-black-rgb), 0.05);
+}
+
+.interns-control__icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: rgba(var(--fistudy-base-rgb), 0.1);
+  color: var(--fistudy-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 20px;
+}
+
+.interns-control__card:nth-child(3n + 2) .interns-control__icon {
+  background-color: rgba(248, 122, 83, 0.12);
+  color: var(--fistudy-primary);
+}
+
+.interns-control__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--fistudy-black);
+  margin-bottom: 10px;
+}
+
+.interns-control__text {
+  font-size: 15px;
+  line-height: 1.7em;
+  color: var(--fistudy-gray);
+  margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Trust Strip
+--------------------------------------------------------------*/
+.interns-trust {
+  position: relative;
+  display: block;
+  padding: 50px 0;
+  background-color: var(--fistudy-black);
+  text-align: center;
+}
+
+.interns-trust__text {
+  color: rgba(var(--fistudy-white-rgb), 0.85);
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0 auto;
+  max-width: 720px;
+  line-height: 1.7em;
+}
+
+.interns-trust__text strong {
+  color: var(--fistudy-white);
+}
+
+/*--------------------------------------------------------------
+# Partnership Form
+--------------------------------------------------------------*/
+.interns-apply {
+  padding: 100px 0;
+  background-color: #fbfbff;
+}
+
+.interns-apply__intro {
+  max-width: 640px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.interns-form {
+  position: relative;
+  background-color: var(--fistudy-white);
+  border-radius: 24px;
+  padding: 44px;
+  box-shadow: 0 30px 70px rgba(var(--fistudy-black-rgb), 0.08);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.interns-form__group {
+  margin-bottom: 24px;
+}
+
+.interns-form__label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fistudy-black);
+  margin-bottom: 10px;
+}
+
+.interns-form__label .required {
+  color: var(--fistudy-primary);
+  font-weight: 700;
+}
+
+.interns-form__group input[type='text'],
+.interns-form__group input[type='tel'],
+.interns-form__group input[type='email'],
+.interns-form__group input[type='number'],
+.interns-form__group select,
+.interns-form__group textarea {
+  width: 100%;
+  height: 56px;
+  border-radius: 10px;
+  border: 1px solid var(--fistudy-bdr-color);
+  background-color: var(--fistudy-white);
+  padding: 0 20px;
+  font-size: 16px;
+  color: var(--fistudy-black);
+  outline: none;
+  transition: border-color 300ms ease;
+}
+
+.interns-form__group textarea {
+  height: 130px;
+  padding: 16px 20px;
+  resize: vertical;
+}
+
+.interns-form__group input:focus,
+.interns-form__group select:focus,
+.interns-form__group textarea:focus {
+  border-color: var(--fistudy-base);
+}
+
+.interns-form__error {
+  display: none;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e0483e;
+}
+
+.interns-form__group.has-error input,
+.interns-form__group.has-error select,
+.interns-form__group.has-error textarea {
+  border-color: #e0483e;
+}
+
+.interns-form__group.has-error .interns-form__error {
+  display: block;
+}
+
+/* nice-select overrides so it matches the input height above */
+.interns-form__group .nice-select {
+  width: 100%;
+  height: 56px;
+  line-height: 54px;
+  border-radius: 10px;
+  border: 1px solid var(--fistudy-bdr-color);
+  padding-left: 20px;
+  font-size: 16px;
+  color: var(--fistudy-black);
+}
+
+.interns-form__group .nice-select .list {
+  width: 100%;
+  max-height: 260px;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.interns-form__group.has-error .nice-select {
+  border-color: #e0483e;
+}
+
+/* Choice grids: radio (single) and checkbox (multi) options as cards */
+.interns-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.interns-choice {
+  position: relative;
+}
+
+.interns-choice input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.interns-choice__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid var(--fistudy-bdr-color);
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--fistudy-black);
+  transition: all 250ms ease;
+}
+
+.interns-choice input:checked ~ .interns-choice__card {
+  border-color: var(--fistudy-base);
+  background-color: rgba(var(--fistudy-base-rgb), 0.06);
+  color: var(--fistudy-base);
+}
+
+.interns-choice__card i {
+  font-size: 14px;
+  opacity: 0;
+}
+
+.interns-choice input:checked ~ .interns-choice__card i {
+  opacity: 1;
+}
+
+.interns-form__submit {
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.interns-form__privacy {
+  text-align: center;
+  font-size: 13px;
+  color: var(--fistudy-gray);
+  margin-top: 18px;
+}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+@media (max-width: 991px) {
+  .interns-hero {
+    padding: 40px 0 60px;
+  }
+  .interns-hero__title {
+    font-size: 34px;
+  }
+  .interns-control {
+    padding: 60px 0;
+  }
+  .interns-form {
+    padding: 32px 22px;
+  }
+}
+
+@media (max-width: 575px) {
+  .interns-hero__title {
+    font-size: 28px;
+  }
+  .interns-choice-grid {
+    grid-template-columns: 1fr;
+  }
+  .interns-form {
+    padding: 26px 16px;
+  }
+}

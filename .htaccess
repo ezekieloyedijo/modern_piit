@@ -1,0 +1,23 @@
+# PIIT redirects (Website Correction Note, Oct 2026)
+# If the server already has an .htaccess file, paste these rules at the TOP
+# of it. Do not replace the existing file: cPanel keeps its PHP settings there.
+
+RewriteEngine On
+
+# Lakowe subsite retired: homepage for now (change target only if management approves)
+RewriteRule ^lakowe-center(/.*)?$ / [R=301,L]
+
+# CISCO Programme retired: homepage
+RewriteRule ^course-details-three(\.html)?$ / [R=301,L]
+
+# Courses carousel retired: Diploma in Software Engineering
+RewriteRule ^course-carousel(\.html)?$ /course-details.html [R=301,L]
+
+# Diploma Programmes retired: Diploma in Software Engineering
+RewriteRule ^course-details-two(\.html)?$ /course-details.html [R=301,L]
+
+# Unused template page (example.com contacts): Diploma in Software Engineering
+RewriteRule ^course(\.html)?$ /course-details.html [R=301,L]
+
+# New page: piit.com.ng/cbt serves cbt.html
+RewriteRule ^cbt/?$ /cbt.html [L]

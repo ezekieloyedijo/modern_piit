@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HFP Center - Professional Training & Development</title>
+    <title>HFP Centre | PIIT Lagos</title>
+    <meta name="description" content="PIIT, Prime Innovation Institute of Technology, Lagos: NBTE accredited Diploma in Software Engineering and JAMB CBT Centre" />
+    <link rel="icon" type="image/png" href="../Images/pimg/PIITBrochure.png" />
     <style>
       * {
         margin: 0;
@@ -68,6 +70,34 @@
         text-decoration: none;
       }
 
+      .logo img {
+        width: 44px;
+        height: auto;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: 1px solid var(--gray-light);
+        border-radius: 8px;
+        padding: 0.4rem 0.75rem;
+        font-size: 1.4rem;
+        cursor: pointer;
+        color: var(--primary-dark);
+      }
+
+      .partner-logo {
+        height: 80px;
+        width: auto;
+        background: var(--white);
+        border-radius: 8px;
+        padding: 6px;
+      }
+
+      .contact-value a {
+        color: inherit;
+      }
+
       .logo-placeholder {
         width: 40px;
         height: 40px;
@@ -83,7 +113,9 @@
 
       nav {
         display: flex;
-        gap: 2rem;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
         align-items: center;
       }
 
@@ -696,8 +728,25 @@
           grid-template-columns: 1fr;
         }
 
+        .menu-toggle {
+          display: block;
+        }
+
         nav {
           display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--white);
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1rem 2rem;
+          border-bottom: 1px solid var(--gray-light);
+        }
+
+        nav.open {
+          display: flex;
         }
 
         .nav-cta {
@@ -711,14 +760,22 @@
     <!-- Header -->
     <header id="header">
       <div class="header-container">
-        <a href="#" class="logo">
-          <div class="logo-placeholder">HFP</div>
-          HFP Center
+        <a href="../index.html" class="logo">
+          <img src="../Images/pimg/PIITBrochure.png" alt="PIIT" />
+          PIIT HFP Centre
         </a>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
         <nav>
-          <a href="#courses">Courses</a>
-          <a href="#contact">Contact</a>
-          <a href="#contact" class="nav-cta">Enquire Now</a>
+          <a href="../index.html">Home</a>
+          <a href="../about.html">About</a>
+          <a href="../course-details.html">Diploma in Software Engineering</a>
+          <a href="index.html">HFP Centre</a>
+          <a href="../cbt.html">JAMB CBT Centre</a>
+          <a href="../events.html">Events</a>
+          <a href="../faq.html">FAQs</a>
+          <a href="../certificate-query.html">Certificates</a>
+          <a href="../contact.html">Contact</a>
+          <a href="https://wa.me/2347070069959?text=Hello%20there!%20%F0%9F%91%8B%20Welcome%20to%20Prime%20Innovation%20Institute%20of%20Technology!%20We're%20thrilled%20you've%20reached%20out%20to%20us.%20What%20is%20your%20name%3F%20How%20can%20we%20assist%20you%20today%3F" target="_blank" class="nav-cta">Chat with us</a>
         </nav>
       </div>
     </header>
@@ -726,77 +783,68 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Transform Your Career Today</h1>
+        <h1>PIIT HFP Centre, Abraham Adesanya</h1>
         <p>
-          Unlock your potential with industry-leading courses and expert
-          mentorship designed to accelerate your professional growth and
-          success.
+          Study the NBTE accredited Diploma in Software Engineering at Prime
+          Innovation Institute of Technology's HFP centre in Lekki, Ajah,
+          Lagos.
         </p>
 
         <div class="hero-stats">
           <div class="stat">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Happy Graduates</div>
+            <div class="stat-number">22,000+</div>
+            <div class="stat-label">Students Trained in Lagos</div>
           </div>
           <div class="stat">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Expert Instructors</div>
+            <div class="stat-number">NBTE</div>
+            <div class="stat-label">Accredited</div>
           </div>
           <div class="stat">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">Success Rate</div>
+            <div class="stat-number">Bellarks</div>
+            <div class="stat-label">Affiliated with Bellarks Polytechnic, Delta State</div>
           </div>
           <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Job Placement</div>
+            <div class="stat-number">JAMB CBT</div>
+            <div class="stat-label">CBT Centre opening soon at Lakowe</div>
           </div>
         </div>
 
         <div class="hero-buttons">
-          <button class="btn btn-primary">Explore Courses</button>
-          <button class="btn btn-secondary">Learn More</button>
+          <a href="../course-details.html" class="btn btn-primary">Diploma in Software Engineering</a>
+          <a href="#contact" class="btn btn-secondary">Contact the Centre</a>
         </div>
       </div>
 
       <div class="hero-image">
-        <img src="./public/images/hero2.jpg" alt="HFP Training Center" />
+        <img src="./public/images/hero2.jpg" alt="PIIT HFP Centre" />
       </div>
     </section>
 
     <!-- Features Section -->
     <section class="features">
       <div class="features-container">
-        <h2 class="section-title">Why Choose HFP Center?</h2>
+        <h2 class="section-title">Why Study at the HFP Centre?</h2>
         <p class="section-subtitle">
-          We combine industry expertise with personalized learning to create
-          transformative educational experiences.
+          Hands-on software engineering training from an NBTE accredited
+          institute.
         </p>
 
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">🎯</div>
-            <h3>Industry-Ready Skills</h3>
+            <h3>Software Engineering Skills</h3>
             <p>
-              Learn cutting-edge skills that are in high demand across top
-              companies, ensuring you're always job-ready.
+              Learn software engineering, web development and databases through
+              a structured diploma curriculum.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">👨‍🏫</div>
-            <h3>Expert Mentorship</h3>
+            <h3>Experienced Faculty</h3>
             <p>
-              Get personalized guidance from experienced professionals who have
-              excelled in their respective fields.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">💼</div>
-            <h3>Career Support</h3>
-            <p>
-              Benefit from comprehensive career coaching, job placement
-              assistance, and lifetime alumni network access.
+              Get guidance from faculty across the different modules and
+              semesters of the programme.
             </p>
           </div>
 
@@ -804,64 +852,53 @@
             <div class="feature-icon">🚀</div>
             <h3>Hands-On Learning</h3>
             <p>
-              Learn by doing with real-world projects, case studies, and
-              practical assignments that build your portfolio.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">⏰</div>
-            <h3>Flexible Schedule</h3>
-            <p>
-              Study at your own pace with options for full-time, part-time, and
-              weekend classes to fit your lifestyle.
+              Learn by doing with real-world projects and a final project you
+              present and defend.
             </p>
           </div>
 
           <div class="feature-card">
             <div class="feature-icon">🏆</div>
-            <h3>Certification</h3>
+            <h3>Accredited Diploma</h3>
             <p>
-              Earn industry-recognized certificates that boost your credibility
-              and career prospects worldwide.
+              Earn a Diploma in Software Engineering from an NBTE accredited
+              institute affiliated with Bellarks Polytechnic, Kwale, Delta
+              State.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Courses Section -->
+    <!-- Programme Section -->
     <section class="courses" id="courses">
       <div class="courses-container">
-        <h2 class="section-title">Our Professional Courses</h2>
+        <h2 class="section-title">Our Programmes</h2>
         <p class="section-subtitle">
-          Choose from our comprehensive range of carefully curated courses
-          designed for career advancement.
+          The HFP centre offers the Diploma in Software Engineering and Kids
+          Coding.
         </p>
 
         <div class="courses-grid">
           <div class="course-card">
             <div class="course-header">
-              <span class="course-badge">Beginner</span>
-              <h3>Full-Stack Web Development</h3>
+              <span class="course-badge">NBTE Accredited</span>
+              <h3>Diploma in Software Engineering</h3>
             </div>
             <div class="course-body">
-              <div class="course-meta">
-                <div class="course-meta-item">📅 24 Weeks</div>
-                <div class="course-meta-item">⭐ 4.9/5</div>
-              </div>
               <p class="course-description">
-                Master modern web development from frontend to backend with
-                hands-on projects.
+                Software engineering, web development and databases, from
+                beginner to advanced level. Offered at the PIIT HFP centre,
+                Abraham Adesanya.
               </p>
               <div class="course-footer">
-                <span class="course-price">Hybrid</span>
+                <a href="../course-details.html" class="enroll-btn">View Programme</a>
                 <a
-                  href="https://wa.me/+2347070069959?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
+                  href="https://wa.me/2347070069959?text=Hello%20there!%20%F0%9F%91%8B%20Welcome%20to%20Prime%20Innovation%20Institute%20of%20Technology!%20We're%20thrilled%20you've%20reached%20out%20to%20us.%20What%20is%20your%20name%3F%20How%20can%20we%20assist%20you%20today%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="enroll-btn"
-                  >Enroll Now</a
+                  >Enquire</a
                 >
               </div>
             </div>
@@ -869,134 +906,21 @@
 
           <div class="course-card">
             <div class="course-header">
-              <span class="course-badge">Intermediate</span>
-              <h3>Data Science & Analytics</h3>
+              <span class="course-badge">For Children</span>
+              <h3>Kids Coding</h3>
             </div>
             <div class="course-body">
-              <div class="course-meta">
-                <div class="course-meta-item">📅 14 Weeks</div>
-                <div class="course-meta-item">⭐ 4.8/5</div>
-              </div>
               <p class="course-description">
-                Learn to extract insights from data and make data-driven
-                business decisions.
+                Coding classes for children at the PIIT HFP centre, Abraham
+                Adesanya. Chat with us on WhatsApp for details.
               </p>
               <div class="course-footer">
-                <span class="course-price">Hybrid</span>
                 <a
-                  href="https://wa.me/+2347070069959?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
+                  href="https://wa.me/2347070069959?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20Kids%20Coding%20at%20PIIT"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="enroll-btn"
-                  >Enroll Now</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="course-card">
-            <div class="course-header">
-              <span class="course-badge">Beginner</span>
-              <h3>Digital Marketing Mastery</h3>
-            </div>
-            <div class="course-body">
-              <div class="course-meta">
-                <div class="course-meta-item">📅 8 Weeks</div>
-                <div class="course-meta-item">⭐ 4.6/5</div>
-              </div>
-              <p class="course-description">
-                Become a digital marketing expert with SEO, social media, and
-                content strategies.
-              </p>
-              <div class="course-footer">
-                <span class="course-price">Hybrid</span>
-                <a
-                  href="https://wa.me/+2347070069959?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="enroll-btn"
-                  >Enroll Now</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="course-card">
-            <div class="course-header">
-              <span class="course-badge">Intermediate</span>
-              <h3>UI/UX Design Fundamentals</h3>
-            </div>
-            <div class="course-body">
-              <div class="course-meta">
-                <div class="course-meta-item">📅 10 Weeks</div>
-                <div class="course-meta-item">⭐ 4.9/5</div>
-              </div>
-              <p class="course-description">
-                Design beautiful user experiences with industry-standard tools
-                and principles.
-              </p>
-              <div class="course-footer">
-                <span class="course-price">Hybrid</span>
-                <a
-                  href="https://wa.me/+2347070069959?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="enroll-btn"
-                  >Enroll Now</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="course-card">
-            <div class="course-header">
-              <span class="course-badge">Advanced</span>
-              <h3>Cyber Security</h3>
-            </div>
-            <div class="course-body">
-              <div class="course-meta">
-                <div class="course-meta-item">📅 12 Weeks</div>
-                <div class="course-meta-item">⭐ 4.7/5</div>
-              </div>
-              <p class="course-description">
-                Develop leadership skills and master modern business management
-                strategies.
-              </p>
-              <div class="course-footer">
-                <span class="course-price">Hybrid</span>
-                <a
-                  href="https://wa.me/+2347070069959?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="enroll-btn"
-                  >Enroll Now</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="course-card">
-            <div class="course-header">
-              <span class="course-badge">Intermediate</span>
-              <h3>Project Management Professional</h3>
-            </div>
-            <div class="course-body">
-              <div class="course-meta">
-                <div class="course-meta-item">📅 10 Weeks</div>
-                <div class="course-meta-item">⭐ 4.7/5</div>
-              </div>
-              <p class="course-description">
-                Master project management methodologies and lead teams to
-                successful delivery.
-              </p>
-              <div class="course-footer">
-                <span class="course-price">Hybrid</span>
-                <a
-                  href="https://wa.me/+2347070069959?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="enroll-btn"
-                  >Enroll Now</a
+                  >Enquire on WhatsApp</a
                 >
               </div>
             </div>
@@ -1005,46 +929,18 @@
       </div>
     </section>
 
-    <!-- Partners Section -->
-    <!-- <section class="partners" id="partners">
+    <!-- Partner Section -->
+    <section class="partners" id="partners">
       <div class="partners-container">
-        <h2 class="section-title partners-title">
-          Trusted by Industry Leaders
-        </h2>
-
+        <h2 class="section-title partners-title">Our Partner</h2>
         <div class="partners-grid">
           <div class="partner-card">
-            <div class="partner-logo-space">Your Logo</div>
-            <div class="partner-name">TechCorp</div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo-space">Your Logo</div>
-            <div class="partner-name">DataPro</div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo-space">Your Logo</div>
-            <div class="partner-name">CloudNet</div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo-space">Your Logo</div>
-            <div class="partner-name">InnoTech</div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo-space">Your Logo</div>
-            <div class="partner-name">FutureLab</div>
-          </div>
-
-          <div class="partner-card">
-            <div class="partner-logo-space">Your Logo</div>
-            <div class="partner-name">GlobalNet</div>
+            <img class="partner-logo" src="../our-images/bellarks_logo.png" alt="Bellarks Polytechnic logo" />
+            <div class="partner-name">Bellarks Polytechnic, Kwale, Delta State</div>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1059,23 +955,27 @@
             <h2>Contact Information</h2>
 
             <div class="contact-item">
-              <div class="contact-label">📍 Address</div>
+              <div class="contact-label">📍 HFP Centre</div>
               <div class="contact-value">
-                New office number: Block E1 suite 061
+                Block E1, Suite 061/084 and Block D2, Suite 306/307, HFP EastLine Shopping Complex
                 <br />
-                Second office number: Block D2 Shop 306 & 307 HFP east line
-                shopping complex Abraham Adesanya
+                Abraham Adesanya, Lekki, Ajah, Lagos
               </div>
             </div>
 
             <div class="contact-item">
               <div class="contact-label">📞 Phone</div>
-              <div class="contact-value">07070069959</div>
+              <div class="contact-value"><a href="tel:+2348105879530">08105879530</a></div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">💬 WhatsApp</div>
+              <div class="contact-value"><a href="https://wa.me/2347070069959?text=Hello%20there!%20%F0%9F%91%8B%20Welcome%20to%20Prime%20Innovation%20Institute%20of%20Technology!%20We're%20thrilled%20you've%20reached%20out%20to%20us.%20What%20is%20your%20name%3F%20How%20can%20we%20assist%20you%20today%3F" target="_blank">07070069959</a></div>
             </div>
 
             <div class="contact-item">
               <div class="contact-label">📧 Email</div>
-              <div class="contact-value">enquiries@piit.com.ng</div>
+              <div class="contact-value"><a href="mailto:enquiries@piit.com.ng">enquiries@piit.com.ng</a></div>
             </div>
 
             <div class="contact-item">
@@ -1086,39 +986,13 @@
             <div class="contact-item">
               <div class="contact-label">Follow Us</div>
               <div class="social-links">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Facebook"
-                  >f</a
-                >
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Twitter"
-                  >𝕏</a
-                >
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="LinkedIn"
-                  >in</a
-                >
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Instagram"
-                  >📷</a
-                >
+                <a href="https://web.facebook.com/PrimeInnovationInstituteOfTechnology" target="_blank" rel="noopener noreferrer" title="Facebook">f</a>
+                <a href="https://www.instagram.com/prime_innovation/?hl=en" target="_blank" rel="noopener noreferrer" title="Instagram">📷</a>
               </div>
             </div>
           </div>
 
-          <form class="contact-form" action="https://formspree.io/f/xeqyknne">
+          <form class="contact-form" action="https://formspree.io/f/xeqyknne" method="post">
             <div class="form-group">
               <label for="name">Full Name</label>
               <input type="text" id="name" name="name" required />
@@ -1150,39 +1024,44 @@
       <div class="footer-container">
         <div class="footer-grid">
           <div class="footer-column">
-            <h4>About HFP Center</h4>
+            <h4>About PIIT</h4>
             <p>
-              Empowering professionals with world-class education and training
-              for over a decade.
+              Prime Innovation Institute of Technology (RC 960999). NBTE
+              accredited. Affiliated with Bellarks Polytechnic, Kwale, Delta
+              State.
             </p>
+            <div class="social-links">
+              <a href="https://web.facebook.com/PrimeInnovationInstituteOfTechnology" target="_blank" rel="noopener noreferrer" title="Facebook">f</a>
+              <a href="https://www.instagram.com/prime_innovation/?hl=en" target="_blank" rel="noopener noreferrer" title="Instagram">📷</a>
+            </div>
           </div>
 
           <div class="footer-column">
             <h4>Quick Links</h4>
-            <a href="#courses">Courses</a>
-            <a href="#partners">Partners</a>
-            <a href="#contact">Contact</a>
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About Us</a>
+            <a href="../cbt.html">JAMB CBT Centre</a>
+            <a href="../faq.html">FAQs</a>
+            <a href="../contact.html">Contact</a>
           </div>
 
           <div class="footer-column">
-            <h4>Resources</h4>
-            <a href="#">Blog</a>
-            <a href="#">FAQ</a>
-            <a href="#">Testimonials</a>
+            <h4>Find us</h4>
+            <p>HFP Centre: Block E1, Suite 061/084 and Block D2, Suite 306/307, HFP EastLine Shopping Complex, Abraham Adesanya, Lekki, Ajah, Lagos</p>
+            <a href="tel:+2348105879530">08105879530</a>
+            <a href="mailto:enquiries@piit.com.ng">enquiries@piit.com.ng</a>
           </div>
 
           <div class="footer-column">
-            <h4>Legal</h4>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
+            <h4>Our Programmes</h4>
+            <a href="../course-details.html">Diploma in Software Engineering</a>
           </div>
         </div>
 
         <div class="footer-bottom">
           <p>
-            &copy; 2024 HFP Center. All rights reserved. | Designed with ❤️ for
-            excellence.
+            &copy; <span class="js-current-year">2026</span> Prime Innovation
+            Institute of Technology. All rights reserved.
           </p>
         </div>
       </div>
@@ -1213,30 +1092,17 @@
         })
       })
 
-      // Form submission
-      document
-        .querySelector('.contact-form')
-        .addEventListener('submit', function (e) {
-          e.preventDefault()
-          const name = document.getElementById('name').value
-          const email = document.getElementById('email').value
-          const subject = document.getElementById('subject').value
-          const message = document.getElementById('message').value
+      // Phone menu toggle
+      const menuToggle = document.querySelector('.menu-toggle')
+      const mainNav = document.querySelector('header nav')
+      menuToggle.addEventListener('click', () => {
+        const open = mainNav.classList.toggle('open')
+        menuToggle.setAttribute('aria-expanded', open)
+      })
 
-          if (name && email && subject && message) {
-            alert(
-              `Thank you ${name}! We've received your message and will get back to you shortly at ${email}.`,
-            )
-            this.reset()
-          }
-        })
-
-      // Replace WhatsApp number
-      // Change YOUR_PHONE_NUMBER to your actual WhatsApp number (e.g., 2348012345678)
-      document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
-        if (link.href.includes('YOUR_PHONE_NUMBER')) {
-          link.href = '#' // Remove link if not configured
-        }
+      // Keep the copyright year current
+      document.querySelectorAll('.js-current-year').forEach((el) => {
+        el.textContent = new Date().getFullYear()
       })
     </script>
   </body>
