@@ -21,3 +21,6 @@ RewriteRule ^course(\.html)?$ /course-details.html [R=301,L]
 
 # New page: piit.com.ng/cbt serves cbt.html
 RewriteRule ^cbt/?$ /cbt.html [L]
+
+# Privacy policy (linked from Meta app/business settings): piit.com.ng/privacy-policy
+RewriteRule ^privacy-policy/?$ /privacy-policy.html [L]
